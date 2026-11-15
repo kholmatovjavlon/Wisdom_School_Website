@@ -1,0 +1,110 @@
+{% extends "base.html" %}{% load static i18n %}
+{% block content %}
+<section class="hero on-dark">
+  <div class="hero__body">
+    <div class="hero__kicker"><span class="gold-rule" aria-hidden="true"></span><p class="eyebrow">{% translate "Welcome to Wisdom School" %}</p></div>
+    <h1 class="hero__title display-xl">{% translate "Curious minds." %}<br>{% translate "Confident futures." %}</h1>
+    <p class="hero__lead">{% translate "An education that goes beyond the classroom. A community where every child is known, challenged and inspired to grow." %}</p>
+    <div class="hero__actions">
+      <a class="btn btn--gold" href="{% url 'about' %}">{% translate "Discover Wisdom" %}&nbsp;&nbsp;↗</a>
+      <a class="arrow-link" href="{% url 'admissions' %}">{% translate "Explore admissions" %}&nbsp;&nbsp;→</a>
+    </div>
+    <ul class="hero__pillars">
+      <li>{% translate "Knowledge" %}</li>
+      <li>{% translate "Character" %}</li>
+      <li>{% translate "Possibility" %}</li>
+    </ul>
+  </div>
+  <div class="hero__media media-cover">
+    <img src="{% static 'img/students.jpg' %}" alt="{% translate 'Students learning together' %}" width="720" height="690" fetchpriority="high">
+  </div>
+</section>
+
+<section class="intro bg-white">
+  <div class="container intro__grid">
+    <div>
+      <p class="eyebrow">01 / {% translate "The Wisdom way" %}</p>
+      <h2 class="display-m">{% translate "More than a school." %}<br>{% translate "A place to become." %}</h2>
+    </div>
+    <div class="intro__right">
+      <h3>{% translate "An ambitious education," %}<br>{% translate "with your child at its heart." %}</h3>
+      <p class="lead">{% translate "At Wisdom School, we nurture the whole learner. Academic depth sits alongside creativity, character and care — helping young people discover what they can do and who they want to become." %}</p>
+      <a class="underline-link" href="{% url 'about' %}">{% translate "Get to know our school" %}&nbsp;&nbsp;↗</a>
+    </div>
+  </div>
+</section>
+
+{% if stages %}
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">02 / {% translate "Learning with purpose" %}</p>
+        <h2 class="display-s">{% translate "Room to grow. At every stage." %}</h2>
+      </div>
+      <a class="arrow-link" href="{% url 'academics' %}" style="font-weight:400">{% translate "Explore academics" %}&nbsp;&nbsp;↗</a>
+    </div>
+    <div class="cards-3">
+      {% for stage in stages %}
+      <article class="stage-card{% if stage.tone == 'lavender' %} stage-card--lavender{% endif %}">
+        <p class="num">{{ forloop.counter|stringformat:"02d" }}</p>
+        <h3>{{ stage.title }}</h3>
+        {% if stage.tagline %}<p class="tag">{{ stage.tagline }}</p>{% endif %}
+        <p class="desc">{{ stage.summary }}</p>
+        <a class="arrow-link" href="{% url 'academics' %}#stage-{{ stage.pk }}">{% translate "Discover more" %}&nbsp;&nbsp;↗</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section bg-white">
+  <div class="container split split--wide-left">
+    <div class="life__media media-cover"><img src="{% static 'img/campus.jpg' %}" alt="{% translate 'Our welcoming school campus' %}" loading="lazy" width="710" height="500"></div>
+    <div class="life__body">
+      <p class="eyebrow">03 / {% translate "Life at Wisdom" %}</p>
+      <h2>{% translate "Big ideas." %}<br>{% translate "Everyday discoveries." %}</h2>
+      <p class="lead">{% translate "Learning happens everywhere: in a lively classroom, across a chessboard, on the sports field and in the friendships that last." %}</p>
+      <ul class="row-list">
+        <li><a href="{% url 'academics' %}#beyond">{% translate "Science & technology" %}</a><span aria-hidden="true">↗</span></li>
+        <li><a href="{% url 'academics' %}#beyond">{% translate "Arts, sport & expression" %}</a><span aria-hidden="true">↗</span></li>
+        <li><a href="{% url 'academics' %}#beyond">{% translate "Chess & critical thinking" %}</a><span aria-hidden="true">↗</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="why bg-ink on-dark">
+  <div class="container why__grid">
+    <div class="why__left">
+      <h2 class="display-s">{% translate "A thoughtful education." %}<br>{% translate "A meaningful difference." %}</h2>
+      <p class="eyebrow eyebrow--gold">{% translate "Why families choose Wisdom" %}</p>
+    </div>
+    <div class="why__items">
+      <div class="why__item"><span class="gold-rule" aria-hidden="true"></span><h3>{% translate "Known as an individual" %}</h3><p>{% translate "Personal attention that recognises each learner’s strengths." %}</p></div>
+      <div class="why__item"><span class="gold-rule" aria-hidden="true"></span><h3>{% translate "Challenged to think" %}</h3><p>{% translate "Rigorous learning that asks better questions." %}</p></div>
+      <div class="why__item"><span class="gold-rule" aria-hidden="true"></span><h3>{% translate "Ready for the world" %}</h3><p>{% translate "Strong values and the confidence to take the next step." %}</p></div>
+    </div>
+  </div>
+</section>
+
+{% if latest_news %}
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">04 / {% translate "From our community" %}</p>
+        <h2 class="display-s">{% translate "The latest at Wisdom" %}</h2>
+      </div>
+      <a class="arrow-link" href="{% url 'news_list' %}" style="font-weight:400">{% translate "All news & events" %}&nbsp;&nbsp;↗</a>
+    </div>
+    <div class="cards-3">
+      {% for post in latest_news %}{% include "school/partials/story_card.html" %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include "school/partials/cta_band.html" %}
+{% endblock %}

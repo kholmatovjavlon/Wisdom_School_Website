@@ -1,0 +1,9 @@
+{% load static i18n %}<article class="story-card{% if compact %} story-card--compact{% endif %}">
+  <a class="media-cover" href="{{ post.get_absolute_url }}" tabindex="-1" aria-hidden="true">
+    {% if post.image %}<img src="{{ post.image.url }}" alt="" loading="lazy">{% else %}<img src="{% static 'img/campus.jpg' %}" alt="" loading="lazy">{% endif %}
+  </a>
+  {% if post.category %}<p class="tag">{{ post.category.name }}</p>{% endif %}
+  <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+  {% if show_excerpt and post.excerpt %}<p class="excerpt">{{ post.excerpt|truncatechars:140 }}</p>{% endif %}
+  <a class="arrow-link" href="{{ post.get_absolute_url }}">{% if compact %}{% translate "Read story" %}{% else %}{% translate "Read the story" %}{% endif %}&nbsp;&nbsp;↗</a>
+</article>

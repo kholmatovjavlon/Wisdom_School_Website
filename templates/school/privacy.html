@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Privacy policy" %} — Wisdom School{% endblock %}
+{% block content %}
+{% translate "Privacy policy" as crumb %}{% translate "Your privacy" as l1 %}{% translate "matters to us." as l2 %}{% translate "How we handle the information you share with Wisdom School." as lead %}
+{% include "school/partials/page_intro.html" with crumb=crumb eyebrow=crumb line1=l1 line2=l2 lead=lead %}
+<section class="section bg-white">
+  <div class="container prose">
+    <h2>{% translate "What we collect" %}</h2>
+    <p>{% translate "When you send an enquiry or a message, we receive the details you enter in the form: your name, contact details and your message." %}</p>
+    <h2>{% translate "How we use it" %}</h2>
+    <p>{% translate "We use this information only to respond to your enquiry and to help your family with admissions. We do not sell or share it with third parties." %}</p>
+    <h2>{% translate "Your choices" %}</h2>
+    <p>{% translate "You can ask us to correct or delete your information at any time by contacting the school." %}</p>
+    <h2 id="accessibility">{% translate "Accessibility" %}</h2>
+    <p>{% translate "We want everyone to be able to use this website. The site works on phones, tablets and computers, supports keyboard navigation and screen readers. If something is difficult to use, please let us know." %}</p>
+  </div>
+</section>
+{% endblock %}

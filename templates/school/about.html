@@ -1,0 +1,49 @@
+{% extends "base.html" %}{% load static i18n %}
+{% block title %}{% translate "About the school" %} — Wisdom School{% endblock %}
+{% block description %}{% translate "Get to know the people, principles and purpose behind Wisdom School." %}{% endblock %}
+{% block content %}
+{% translate "Our school" as crumb %}{% translate "Rooted in values." as l1 %}{% translate "Open to possibility." as l2 %}{% translate "Get to know the people, principles and purpose behind Wisdom School." as lead %}
+{% include "school/partials/page_intro.html" with crumb=crumb eyebrow=crumb line1=l1 line2=l2 lead=lead %}
+
+<section class="section bg-white">
+  <div class="container split story-split">
+    <div class="story-split__media media-cover"><img src="{% static 'img/campus.jpg' %}" alt="{% translate 'School courtyard' %}" loading="lazy" width="710" height="500"></div>
+    <div class="story-split__body">
+      <p class="eyebrow">{% translate "Our story" %}</p>
+      <h2>{% translate "An education with" %}<br>{% translate "purpose and heart." %}</h2>
+      <p class="lead-dark">{% translate "We believe a school should open doors — to new knowledge, new perspectives and a deeper understanding of ourselves." %}</p>
+      <p class="text-muted">{% translate "Wisdom School brings academic learning together with character, creativity and community. Here, students are encouraged to work hard, think independently and treat others with care." %}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-lavender values-section">
+  <div class="container">
+    <p class="eyebrow" style="margin-bottom:22px">{% translate "The values we live" %}</p>
+    <h2 class="display-s">{% translate "What matters stays with us." %}</h2>
+    <div class="cards-4">
+      <div class="value-item"><span class="num">01</span><h3>{% translate "Curiosity" %}</h3><p>{% translate "Ask questions. Look closer. Find delight in discovering something new." %}</p></div>
+      <div class="value-item"><span class="num">02</span><h3>{% translate "Integrity" %}</h3><p>{% translate "Act with honesty, take responsibility and do the right thing with courage." %}</p></div>
+      <div class="value-item"><span class="num">03</span><h3>{% translate "Respect" %}</h3><p>{% translate "Listen with an open mind and value the different people around you." %}</p></div>
+      <div class="value-item"><span class="num">04</span><h3>{% translate "Ambition" %}</h3><p>{% translate "Set meaningful goals and keep growing through effort and reflection." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="container split split--right-wide">
+    <div>
+      <p class="eyebrow" style="margin-bottom:22px">{% translate "Our approach" %}</p>
+      <h2 class="display-s" style="margin-bottom:34px">{% translate "The whole child." %}<br>{% translate "The bigger picture." %}</h2>
+      <p class="lead lead--lg" style="max-width:530px">{% translate "An environment where achievement and wellbeing belong together." %}</p>
+    </div>
+    <ul class="approach-list">
+      <li><h3>{% translate "Learning that goes deeper" %}</h3><p>{% translate "Rich subject knowledge, thoughtful discussion and the confidence to ask why." %}</p></li>
+      <li><h3>{% translate "Care that makes a difference" %}</h3><p>{% translate "A culture of belonging, where students feel seen, supported and safe to try." %}</p></li>
+      <li><h3>{% translate "A community that grows together" %}</h3><p>{% translate "A close partnership between students, educators and families." %}</p></li>
+    </ul>
+  </div>
+</section>
+
+{% include "school/partials/cta_band.html" with bg="bg-lavender" %}
+{% endblock %}

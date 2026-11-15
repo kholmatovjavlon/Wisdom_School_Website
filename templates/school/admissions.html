@@ -1,0 +1,88 @@
+{% extends "base.html" %}{% load static i18n %}
+{% block title %}{% translate "Admissions" %} — Wisdom School{% endblock %}
+{% block description %}{% translate "Find your place in a school community that sees the potential in every child. Make an admissions enquiry or arrange a visit." %}{% endblock %}
+{% block content %}
+{% translate "Join Wisdom School" as crumb %}{% translate "A bright future" as l1 %}{% translate "begins here." as l2 %}{% translate "Find your place in a school community that sees the potential in every child." as lead %}
+{% include "school/partials/page_intro.html" with crumb=crumb eyebrow=crumb line1=l1 line2=l2 lead=lead %}
+
+<section class="section bg-white welcome">
+  <div class="container split split--right-wide" style="align-items:center">
+    <div>
+      <p class="eyebrow">{% translate "A warm welcome" %}</p>
+      <h2>{% translate "The right school" %}<br>{% translate "is a feeling." %}</h2>
+      <p class="lead lead--lg" style="max-width:540px">{% translate "Choosing a school is an important decision. We invite you to ask questions, explore our approach and picture your child as part of our community." %}</p>
+    </div>
+    <div class="welcome__media media-cover"><img src="{% static 'img/students.jpg' %}" alt="{% translate 'Students at Wisdom' %}" loading="lazy" width="720" height="690"></div>
+  </div>
+</section>
+
+<section class="section bg-lavender steps">
+  <div class="container">
+    <p class="eyebrow">{% translate "The admissions journey" %}</p>
+    <h2 class="display-s">{% translate "Let’s take the next step. Together." %}</h2>
+    <div class="cards-4">
+      <div class="step-item"><span class="num">01</span><h3>{% translate "Start a conversation" %}</h3><p>{% translate "Tell us about your child and what matters most to your family." %}</p></div>
+      <div class="step-item"><span class="num">02</span><h3>{% translate "Visit the school" %}</h3><p>{% translate "Experience the atmosphere, meet our team and explore the campus." %}</p></div>
+      <div class="step-item"><span class="num">03</span><h3>{% translate "Get to know each other" %}</h3><p>{% translate "Discuss your child’s learning journey and the right next steps." %}</p></div>
+      <div class="step-item"><span class="num">04</span><h3>{% translate "Begin your chapter" %}</h3><p>{% translate "Receive guidance from our team as you prepare to join the community." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream" id="enquiry">
+  <div class="container split split--form">
+    <div class="form-intro">
+      <p class="eyebrow">{% translate "Make an enquiry" %}</p>
+      <h2>{% translate "Tell us a little" %}<br>{% translate "about your family." %}</h2>
+      <p class="lead">{% translate "Our admissions team can help you explore learning stages, arrange a visit and understand the next steps." %}</p>
+      <div class="info-panel">
+        <h3>{% translate "A conversation, not a commitment." %}</h3>
+        <p>{% translate "You do not need to have everything decided. We are happy to help you find your way." %}</p>
+      </div>
+    </div>
+    <form class="form" method="post" action="{% url 'admissions' %}#enquiry" novalidate>
+      {% csrf_token %}
+      {% for message in messages %}<div class="alert" role="status">{{ message }}</div>{% endfor %}
+      {% if form.non_field_errors %}<div class="alert alert--error" role="alert">{{ form.non_field_errors|join:" " }}</div>{% endif %}
+      {% if form.errors and not form.non_field_errors %}<div class="alert alert--error" role="alert">{% translate "Please check the highlighted fields." %}</div>{% endif %}
+      <p class="form__note">{% translate "Fields marked * are required." %}</p>
+      {% include "school/partials/field.html" with field=form.parent_name %}
+      <div class="form__row">
+        {% include "school/partials/field.html" with field=form.email %}
+        {% include "school/partials/field.html" with field=form.phone %}
+      </div>
+      <div class="form__row">
+        {% include "school/partials/field.html" with field=form.stage %}
+        {% include "school/partials/field.html" with field=form.next_step %}
+      </div>
+      {% include "school/partials/field.html" with field=form.message %}
+      <div class="hp" aria-hidden="true"><label for="id_website">Website</label>{{ form.website }}</div>
+      <div>
+        <label class="check"><input type="checkbox" name="consent" id="id_consent" required{% if form.consent.value %} checked{% endif %}>
+          <span>{% translate "I agree to be contacted about my enquiry and have read the" %} <a href="{% url 'privacy' %}">{% translate "privacy policy" %}</a>.</span></label>
+        {% for error in form.consent.errors %}<p class="field__error">{{ error }}</p>{% endfor %}
+      </div>
+      <button class="btn btn--gold btn--lg" type="submit">{% translate "Send enquiry" %}&nbsp;&nbsp;↗</button>
+    </form>
+  </div>
+</section>
+
+{% if faqs %}
+<section class="section bg-white faq-section">
+  <div class="container split">
+    <div>
+      <p class="eyebrow">{% translate "Your questions, answered" %}</p>
+      <h2>{% translate "A little clarity" %}<br>{% translate "goes a long way." %}</h2>
+    </div>
+    <div class="faq">
+      {% for faq in faqs %}
+      <details{% if forloop.first %} open{% endif %}>
+        <summary>{{ faq.question }}</summary>
+        <div class="answer">{{ faq.answer|linebreaksbr }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}
