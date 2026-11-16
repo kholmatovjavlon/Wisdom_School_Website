@@ -33,6 +33,12 @@ class SiteSettings(models.Model):
         self.pk = 1
         super().save(*args, **kwargs)
 
+    @property
+    def social_links(self):
+        links = [("Telegram", self.telegram), ("Instagram", self.instagram),
+                 ("Facebook", self.facebook), ("YouTube", self.youtube)]
+        return [{"name": name, "url": url} for name, url in links if url]
+
     @classmethod
     def load(cls):
         obj, _created = cls.objects.get_or_create(pk=1)

@@ -17,7 +17,8 @@
   <meta property="og:url" content="{{ site_url }}{{ request.path }}">
   <meta property="og:locale" content="{% if LANG == 'ru' %}ru_RU{% elif LANG == 'en' %}en_US{% else %}uz_UZ{% endif %}">
   <meta name="theme-color" content="#191b18">
-  <link rel="icon" type="image/png" href="{% static 'img/crest.png' %}">
+  <link rel="icon" type="image/png" sizes="64x64" href="{% static 'img/favicon.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display&display=swap&subset=cyrillic,latin-ext">
@@ -29,7 +30,8 @@
     "name": "Wisdom School",
     "url": "{{ site_url }}/",
     "logo": "{{ site_url }}{% static 'img/crest.png' %}",
-    "image": "{{ site_url }}{% static 'img/campus.jpg' %}"{% if site_settings.phone %},
+    "image": "{{ site_url }}{% static 'img/campus.jpg' %}",
+    "sameAs": [{% for link in site_settings.social_links %}"{{ link.url|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}]{% if site_settings.phone %},
     "telephone": "{{ site_settings.phone|escapejs }}"{% endif %}{% if site_settings.email %},
     "email": "{{ site_settings.email|escapejs }}"{% endif %},
     "address": {"@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ"{% if site_settings.address %}, "streetAddress": "{{ site_settings.address|escapejs }}"{% endif %}}
@@ -59,7 +61,7 @@
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="{{ home_url }}" aria-label="Wisdom School — {% translate 'Home' %}">
-      <img class="brand__crest" src="{% static 'img/crest.png' %}" alt="" width="47" height="57">
+      <img class="brand__crest" src="{% static 'img/crest.png' %}" alt="" width="47" height="55">
       <span><span class="brand__name">WISDOM</span><span class="brand__sub">SCHOOL</span></span>
     </a>
     <nav class="nav__menu" aria-label="{% translate 'Main menu' %}">
@@ -127,11 +129,17 @@
           <li><a href="{{ contact_url }}#visit">{% translate "Plan a visit" %}&nbsp;&nbsp;↗</a></li>
           <li><a href="{{ admissions_url }}#enquiry">{% translate "Make an enquiry" %}&nbsp;&nbsp;↗</a></li>
         </ul>
-        {% if site_settings.phone or site_settings.email %}
+        {% if site_settings.phone or site_settings.email or site_settings.address %}
         <p class="footer__contact">
+          {% if site_settings.address %}{{ site_settings.address }}<br>{% endif %}
           {% if site_settings.phone %}<a href="tel:{{ site_settings.phone|cut:' ' }}">{{ site_settings.phone }}</a><br>{% endif %}
           {% if site_settings.email %}<a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>{% endif %}
         </p>
+        {% endif %}
+        {% if site_settings.social_links %}
+        <ul class="footer__social">
+          {% for link in site_settings.social_links %}<li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a></li>{% endfor %}
+        </ul>
         {% endif %}
       </div>
     </div>
