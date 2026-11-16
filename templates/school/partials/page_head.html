@@ -1,0 +1,7 @@
+{% load i18n %}<section class="page-head">
+  <div class="container">
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumbs' %}"><a href="{% url 'home' %}">{% translate "Home" %}</a>{% if crumb %}<span aria-hidden="true">/</span><a href="{{ crumb_url }}">{{ crumb }}</a>{% endif %}</nav>
+    <h1>{{ title }}</h1>
+    {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
+  </div>
+</section>

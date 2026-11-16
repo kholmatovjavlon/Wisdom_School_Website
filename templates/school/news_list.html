@@ -1,57 +1,30 @@
 {% extends "base.html" %}{% load static i18n %}
-{% block title %}{% translate "News & school life" %} — Wisdom School{% endblock %}
-{% block description %}{% translate "Discover the learning, ideas and everyday moments that make our community." %}{% endblock %}
+{% block title %}{% translate "News" %} — Wisdom School{% endblock %}
+{% block description %}{% translate "Learning, ideas and everyday moments from Wisdom School." %}{% endblock %}
 {% block content %}
-{% translate "News & school life" as crumb %}{% translate "A school full" as l1 %}{% translate "of stories." as l2 %}{% translate "Discover the learning, ideas and everyday moments that make our community." as lead %}
-{% include "school/partials/page_intro.html" with crumb=crumb eyebrow=crumb line1=l1 line2=l2 lead=lead %}
-
-{% if featured and page.number == 1 %}
-<section class="section bg-white">
-  <div class="container split featured" style="align-items:start">
-    <a class="featured__media media-cover" href="{{ featured.get_absolute_url }}" tabindex="-1" aria-hidden="true">
-      {% if featured.image %}<img src="{{ featured.image.url }}" alt="">{% else %}<img src="{% static 'img/science.jpg' %}" alt="">{% endif %}
-    </a>
-    <div class="featured__body">
-      <p class="eyebrow">{% translate "Featured" %}{% if featured.category %} / {{ featured.category.name }}{% endif %}</p>
-      <h2><a href="{{ featured.get_absolute_url }}">{{ featured.title }}</a></h2>
-      {% if featured.excerpt %}<p class="lead">{{ featured.excerpt }}</p>{% endif %}
-      <a class="btn btn--gold btn--lg" href="{{ featured.get_absolute_url }}" style="min-width:213px">{% translate "Read the story" %}&nbsp;&nbsp;↗</a>
-    </div>
-  </div>
-</section>
-{% endif %}
-
-<section class="section bg-cream" id="stories">
+{% translate "School news" as title %}{% translate "Learning, ideas and everyday moments from Wisdom School." as lead %}
+{% include "school/partials/page_head.html" with title=title lead=lead %}
+<section class="section section--alt" id="stories">
   <div class="container">
-    <h2 class="display-s">{% translate "From around our school" %}</h2>
     {% if categories %}
-    <nav class="chips" aria-label="{% translate 'Categories' %}">
-      <a class="chip" href="{% url 'news_list' %}#stories"{% if not active_category %} aria-current="true"{% endif %}>{% translate "All stories" %}</a>
-      {% for cat in categories %}<a class="chip" href="?category={{ cat.slug }}#stories"{% if active_category == cat.slug %} aria-current="true"{% endif %}>{{ cat.name }}</a>{% endfor %}
+    <nav class="tabs" aria-label="{% translate 'Categories' %}">
+      <a href="{% url 'news_list' %}#stories"{% if not active_category %} aria-current="true"{% endif %}>{% translate "All news" %}</a>
+      {% for cat in categories %}<a href="?category={{ cat.slug }}#stories"{% if active_category == cat.slug %} aria-current="true"{% endif %}>{{ cat.name }}</a>{% endfor %}
     </nav>
     {% endif %}
+    {% if featured and page.number == 1 %}<div class="grid-3" style="margin-bottom:24px">{% include "school/partials/news_card.html" with post=featured show_excerpt=True %}</div>{% endif %}
     {% if page.object_list %}
-    <div class="cards-3 news-grid">
-      {% for post in page.object_list %}{% include "school/partials/story_card.html" with compact=True show_excerpt=True %}{% endfor %}
+    <div class="grid-3">
+      {% for post in page.object_list %}{% include "school/partials/news_card.html" with show_excerpt=True %}{% endfor %}
     </div>
     {% if page.has_other_pages %}
     <nav class="pagination" aria-label="{% translate 'Pages' %}">
-      {% if page.has_previous %}<a class="arrow-link" href="?{% if active_category %}category={{ active_category }}&amp;{% endif %}page={{ page.previous_page_number }}#stories">← {% translate "Newer" %}</a>{% endif %}
+      {% if page.has_previous %}<a class="link" href="?{% if active_category %}category={{ active_category }}&amp;{% endif %}page={{ page.previous_page_number }}#stories">← {% translate "Newer" %}</a>{% endif %}
       <span>{{ page.number }} / {{ page.paginator.num_pages }}</span>
-      {% if page.has_next %}<a class="arrow-link" href="?{% if active_category %}category={{ active_category }}&amp;{% endif %}page={{ page.next_page_number }}#stories">{% translate "Older" %} →</a>{% endif %}
+      {% if page.has_next %}<a class="link" href="?{% if active_category %}category={{ active_category }}&amp;{% endif %}page={{ page.next_page_number }}#stories">{% translate "Older" %} →</a>{% endif %}
     </nav>
     {% endif %}
-    {% else %}<p class="empty">{% translate "No stories yet. Please check back soon." %}</p>{% endif %}
-  </div>
-</section>
-
-<section class="cta-band cta-band--split bg-lavender">
-  <div class="container">
-    <h2>{% translate "See the stories" %}<br>{% translate "for yourself." %}</h2>
-    <div class="cta-band__side">
-      <p>{% translate "Experience a day in our school community." %}</p>
-      <a class="btn btn--dark btn--lg" href="{% url 'contact' %}#visit">{% translate "Arrange a school visit" %}&nbsp;&nbsp;↗</a>
-    </div>
+    {% elif not featured %}<p class="empty">{% translate "No news yet. Please check back soon." %}</p>{% endif %}
   </div>
 </section>
 {% endblock %}

@@ -7,7 +7,7 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import translation
 
-from school.models import AdmissionEnquiry, ContactMessage, LearningStage, NewsPost
+from school.models import AdmissionEnquiry, LearningStage, NewsPost
 
 
 TEST_MEDIA = tempfile.mkdtemp(prefix="wisdom-test-media-")
@@ -25,19 +25,29 @@ class PagesTest(TestCase):
         call_command("seed_demo", stdout=open("/dev/null", "w"))
 
     def test_all_pages_in_all_languages(self):
-        names = ["home", "about", "academics", "admissions", "faculty", "news_list", "gallery", "contact", "privacy"]
         for lang in ("uz", "ru", "en"):
             with translation.override(lang):
-                for name in names:
+                for name in ["home", "news_list", "privacy"]:
                     url = reverse(name)
                     with self.subTest(url=url):
                         self.assertEqual(self.client.get(url).status_code, 200)
 
+    def test_old_pages_redirect_to_sections(self):
+        with translation.override("ru"):
+            home = reverse("home")
+            for name, anchor in [("about", "about"), ("academics", "learning"), ("faculty", "teachers"),
+                                 ("gallery", "gallery"), ("contact", "contact"), ("admissions", "enquiry")]:
+                response = self.client.get(reverse(name))
+                with self.subTest(name=name):
+                    self.assertEqual(response.status_code, 301)
+                    self.assertEqual(response["Location"], f"{home}#{anchor}")
+
     def test_translated_content(self):
         with translation.override("ru"):
             response = self.client.get(reverse("home"))
-        self.assertContains(response, "Любознательные умы.")
+        self.assertContains(response, "Знания, характер")
         self.assertContains(response, "Начальная школа")
+        self.assertContains(response, 'id="enquiry"')
 
     def test_news_detail_and_filter(self):
         post = NewsPost.objects.first()
@@ -63,8 +73,8 @@ class FormsTest(TestCase):
         with translation.override("ru"):
             url = reverse("admissions")
         response = self.client.post(url, {
-            "parent_name": "Dilnoza", "email": "d@example.com", "phone": "+998 90 123 45 67",
-            "stage": self.stage.pk, "next_step": "visit", "message": "Hello", "consent": "on",
+            "parent_name": "Dilnoza", "phone": "+998 90 123 45 67",
+            "stage": self.stage.pk, "next_step": "visit", "consent": "on",
         })
         self.assertEqual(response.status_code, 302)
         enquiry = AdmissionEnquiry.objects.get()
@@ -77,15 +87,11 @@ class FormsTest(TestCase):
         self.assertFalse(AdmissionEnquiry.objects.exists())
 
     def test_honeypot_blocks_bots(self):
-        self.client.post(reverse("contact"), {
-            "name": "Bot", "email": "b@example.com", "subject": "general", "message": "spam",
-            "consent": "on", "website": "http://spam",
+        self.client.post(reverse("admissions"), {
+            "parent_name": "Bot", "phone": "123", "consent": "on", "website": "http://spam",
         })
-        self.assertFalse(ContactMessage.objects.exists())
+        self.assertFalse(AdmissionEnquiry.objects.exists())
 
-    def test_contact_message_saved(self):
-        response = self.client.post(reverse("contact"), {
-            "name": "Aziz", "email": "a@example.com", "subject": "general", "message": "Question", "consent": "on",
-        })
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(ContactMessage.objects.count(), 1)
+    def test_phone_is_required(self):
+        self.client.post(reverse("admissions"), {"parent_name": "Aziz", "consent": "on"})
+        self.assertFalse(AdmissionEnquiry.objects.exists())

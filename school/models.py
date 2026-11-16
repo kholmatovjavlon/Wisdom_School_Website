@@ -35,9 +35,9 @@ class SiteSettings(models.Model):
 
     @property
     def social_links(self):
-        links = [("Telegram", self.telegram), ("Instagram", self.instagram),
-                 ("Facebook", self.facebook), ("YouTube", self.youtube)]
-        return [{"name": name, "url": url} for name, url in links if url]
+        links = [("Telegram", "send", self.telegram), ("Instagram", "instagram", self.instagram),
+                 ("Facebook", "facebook", self.facebook), ("YouTube", "youtube", self.youtube)]
+        return [{"name": name, "icon": icon, "url": url} for name, icon, url in links if url]
 
     @classmethod
     def load(cls):
@@ -197,12 +197,12 @@ class EnquiryStatus(models.TextChoices):
 
 class AdmissionEnquiry(models.Model):
     class NextStep(models.TextChoices):
-        VISIT = "visit", _("Arrange a school visit")
-        CALL = "call", _("Receive a phone call")
-        INFO = "info", _("Receive more information")
+        CALL = "call", _("Phone call")
+        VISIT = "visit", _("School tour")
+        INFO = "info", _("Information by message")
 
     parent_name = models.CharField(_("parent / guardian name"), max_length=150)
-    email = models.EmailField(_("e-mail"))
+    email = models.EmailField(_("e-mail"), blank=True)
     phone = models.CharField(_("phone"), max_length=50, blank=True)
     stage = models.ForeignKey(LearningStage, verbose_name=_("learning stage"), on_delete=models.SET_NULL,
                               null=True, blank=True)

@@ -1,0 +1,9 @@
+{% load static i18n %}<article class="card news-card">
+  <a href="{{ post.get_absolute_url }}" tabindex="-1" aria-hidden="true">{% if post.image %}<img src="{{ post.image.url }}" alt="" loading="lazy">{% else %}<img src="{% static 'img/campus.jpg' %}" alt="" loading="lazy">{% endif %}</a>
+  <div class="news-card__body">
+    <p class="meta">{% if post.category %}<span class="cat">{{ post.category.name }}</span><span aria-hidden="true">•</span>{% endif %}<time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"j E Y" }}</time></p>
+    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+    {% if show_excerpt and post.excerpt %}<p>{{ post.excerpt|truncatechars:140 }}</p>{% endif %}
+    <a class="link" href="{{ post.get_absolute_url }}">{% translate "Read" %}{% include "school/partials/icon.html" with name="arrow" %}</a>
+  </div>
+</article>

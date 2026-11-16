@@ -1,0 +1,1 @@
+{% load i18n %}{% for anchor, label in menu_items %}{% if as_list %}<li>{% endif %}<a href="{{ base }}#{{ anchor }}" data-section="{{ anchor }}">{{ label }}</a>{% if as_list %}</li>{% endif %}{% endfor %}

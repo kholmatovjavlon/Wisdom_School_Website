@@ -7,7 +7,7 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_GET
 
-from .forms import AdmissionEnquiryForm, ContactForm
+from .forms import AdmissionEnquiryForm
 from .models import FAQ, GalleryImage, LearningStage, NewsCategory, NewsPost, Teacher
 from .notifications import notify_staff
 
@@ -16,58 +16,59 @@ def stages():
     return LearningStage.objects.filter(is_active=True)
 
 
-def home(request):
+def _landing(request, form=None, status=200):
     return render(request, "school/home.html", {
         "nav": "home",
         "stages": stages()[:3],
+        "teachers": Teacher.objects.filter(is_active=True)[:6],
+        "gallery": GalleryImage.objects.filter(is_published=True)[:3],
         "latest_news": NewsPost.published.select_related("category")[:3],
-    })
+        "faqs": FAQ.objects.filter(is_active=True)[:6],
+        "form": form or AdmissionEnquiryForm(),
+    }, status=status)
 
 
-def about(request):
-    return render(request, "school/about.html", {"nav": "about"})
+def home(request):
+    if request.method == "POST":
+        return admissions(request)
+    return _landing(request)
 
 
-def academics(request):
-    return render(request, "school/academics.html", {"nav": "academics", "stages": stages()})
+def _to_section(anchor):
+    def view(request):
+        return redirect(reverse("home") + "#" + anchor, permanent=True)
+    return view
+
+
+# The site is a single landing page now; old section pages point to their blocks.
+about = _to_section("about")
+academics = _to_section("learning")
+faculty = _to_section("teachers")
+gallery = _to_section("gallery")
+contact = _to_section("contact")
 
 
 def admissions(request):
-    if request.method == "POST":
-        form = AdmissionEnquiryForm(request.POST)
-        if form.is_valid():
-            enquiry = form.save(commit=False)
-            enquiry.language = get_language() or ""
-            enquiry.save()
-            notify_staff(
-                f"New admissions enquiry: {enquiry.parent_name}",
-                [
-                    f"Name: {enquiry.parent_name}",
-                    f"Phone: {enquiry.phone}",
-                    f"E-mail: {enquiry.email}",
-                    f"Stage: {enquiry.stage or '-'}",
-                    f"Next step: {enquiry.get_next_step_display() or '-'}",
-                    "",
-                    enquiry.message,
-                ],
-            )
-            messages.success(request, _("Thank you! Your enquiry has been received. "
-                                        "Our admissions team will contact you soon."))
-            return redirect(reverse("admissions") + "#enquiry")
-    else:
-        form = AdmissionEnquiryForm()
-    return render(request, "school/admissions.html", {
-        "nav": "admissions",
-        "form": form,
-        "faqs": FAQ.objects.filter(is_active=True),
-    })
-
-
-def faculty(request):
-    return render(request, "school/faculty.html", {
-        "nav": "faculty",
-        "teachers": Teacher.objects.filter(is_active=True),
-    })
+    if request.method != "POST":
+        return redirect(reverse("home") + "#enquiry", permanent=True)
+    form = AdmissionEnquiryForm(request.POST)
+    if not form.is_valid():
+        return _landing(request, form)
+    enquiry = form.save(commit=False)
+    enquiry.language = get_language() or ""
+    enquiry.save()
+    notify_staff(
+        f"New admissions enquiry: {enquiry.parent_name}",
+        [
+            f"Name: {enquiry.parent_name}",
+            f"Phone: {enquiry.phone}",
+            f"Stage: {enquiry.stage or '-'}",
+            f"Contact by: {enquiry.get_next_step_display() or '-'}",
+        ],
+    )
+    messages.success(request, _("Thank you! Your enquiry has been received. "
+                                "We will call you back soon."))
+    return redirect(reverse("home") + "#enquiry")
 
 
 def news_list(request):
@@ -94,32 +95,6 @@ def news_detail(request, slug):
     post = get_object_or_404(NewsPost.published.select_related("category"), slug=slug)
     more = NewsPost.published.exclude(pk=post.pk).select_related("category")[:3]
     return render(request, "school/news_detail.html", {"nav": "news", "post": post, "more": more})
-
-
-def gallery(request):
-    return render(request, "school/gallery.html", {
-        "nav": "gallery",
-        "images": GalleryImage.objects.filter(is_published=True),
-    })
-
-
-def contact(request):
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            msg = form.save(commit=False)
-            msg.language = get_language() or ""
-            msg.save()
-            notify_staff(
-                f"New message from the website: {msg.name}",
-                [f"Name: {msg.name}", f"E-mail: {msg.email}", f"Subject: {msg.get_subject_display()}", "",
-                 msg.message],
-            )
-            messages.success(request, _("Thank you for your message. We will reply as soon as possible."))
-            return redirect(reverse("contact") + "#message")
-    else:
-        form = ContactForm()
-    return render(request, "school/contact.html", {"nav": "contact", "form": form})
 
 
 def privacy(request):

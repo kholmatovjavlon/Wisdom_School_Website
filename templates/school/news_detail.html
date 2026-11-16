@@ -6,28 +6,23 @@
 {% block og_description %}{{ post.excerpt|default:post.title|truncatechars:160 }}{% endblock %}
 {% block og_image %}{% if post.image %}{{ site_url }}{{ post.image.url }}{% else %}{{ site_url }}{% static 'img/campus.jpg' %}{% endif %}{% endblock %}
 {% block content %}
-<section class="section bg-white" style="padding-top:28px">
-  <div class="container">
-    <nav class="breadcrumbs" aria-label="{% translate 'Breadcrumbs' %}">
-      <a href="{% url 'home' %}">{% translate "Home" %}</a><span aria-hidden="true">/</span><a href="{% url 'news_list' %}">{% translate "News & school life" %}</a>
-    </nav>
-    <article class="article">
-      <p class="article__meta">{% if post.category %}<span class="tag">{{ post.category.name }}</span>{% endif %}<time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"j E Y" }}</time></p>
-      <h1>{{ post.title }}</h1>
-      {% if post.excerpt %}<p class="article__lead">{{ post.excerpt }}</p>{% endif %}
-      {% if post.image %}<div class="article__image media-cover"><img src="{{ post.image.url }}" alt=""></div>{% endif %}
-      <div class="article__body">{% for p in post.paragraphs %}<p>{{ p|linebreaksbr }}</p>{% endfor %}</div>
-      <p style="margin-top:32px"><a class="arrow-link" href="{% url 'news_list' %}">← {% translate "All news & events" %}</a></p>
-    </article>
-  </div>
+{% url 'news_list' as news_url %}{% translate "News" as crumb %}
+{% include "school/partials/page_head.html" with title=post.title crumb=crumb crumb_url=news_url %}
+<section class="section">
+  <article class="container article">
+    <p class="meta" style="margin-bottom:16px">{% if post.category %}<span class="cat">{{ post.category.name }}</span><span aria-hidden="true">•</span>{% endif %}<time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"j E Y" }}</time></p>
+    {% if post.excerpt %}<p class="article__lead">{{ post.excerpt }}</p>{% endif %}
+    {% if post.image %}<img class="article__image" src="{{ post.image.url }}" alt="">{% endif %}
+    <div class="article__body">{% for p in post.paragraphs %}<p>{{ p|linebreaksbr }}</p>{% endfor %}</div>
+    <p><a class="link" href="{{ news_url }}">← {% translate "All news" %}</a></p>
+  </article>
 </section>
 {% if more %}
-<section class="section bg-cream">
+<section class="section section--alt">
   <div class="container">
-    <h2 class="display-s" style="margin-bottom:40px">{% translate "More stories" %}</h2>
-    <div class="cards-3">{% for post in more %}{% include "school/partials/story_card.html" with compact=True %}{% endfor %}</div>
+    <div class="section__head"><h2 class="h2">{% translate "More news" %}</h2></div>
+    <div class="grid-3">{% for post in more %}{% include "school/partials/news_card.html" %}{% endfor %}</div>
   </div>
 </section>
 {% endif %}
-{% include "school/partials/cta_band.html" %}
 {% endblock %}

@@ -17,35 +17,34 @@ class HoneypotMixin(forms.Form):
 
 
 class AdmissionEnquiryForm(HoneypotMixin, forms.ModelForm):
-    consent = forms.BooleanField(required=True, label=_(
-        "I agree to be contacted about my enquiry and have read the privacy policy."))
+    consent = forms.BooleanField(required=True, initial=True, label=_(
+        "I agree to the processing of my personal data."))
 
     class Meta:
         model = AdmissionEnquiry
-        fields = ["parent_name", "email", "phone", "stage", "next_step", "message", "consent"]
+        fields = ["parent_name", "phone", "stage", "next_step", "consent"]
         labels = {
-            "parent_name": _("Parent / guardian name"),
-            "email": _("Email address"),
-            "phone": _("Phone number"),
-            "stage": _("Learning stage of interest"),
-            "next_step": _("Preferred next step"),
-            "message": _("Anything you would like us to know?"),
+            "parent_name": _("Parent's name"),
+            "phone": _("Phone"),
+            "stage": _("Child's stage"),
+            "next_step": _("How should we contact you?"),
         }
         widgets = {
-            "parent_name": forms.TextInput(attrs={"placeholder": _("Your full name"), "autocomplete": "name"}),
-            "email": forms.EmailInput(attrs={"placeholder": "you@example.com", "autocomplete": "email"}),
-            "phone": forms.TextInput(attrs={"placeholder": _("Include country code"), "autocomplete": "tel",
+            "parent_name": forms.TextInput(attrs={"placeholder": _("For example, Dilnoza"), "autocomplete": "name"}),
+            "phone": forms.TextInput(attrs={"placeholder": "+998 __ ___ __ __", "autocomplete": "tel",
                                             "inputmode": "tel"}),
-            "message": forms.Textarea(attrs={"placeholder": _("Tell us how we can help your family…"), "rows": 4}),
+            "next_step": forms.RadioSelect,
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["phone"].required = True
         self.fields["stage"].queryset = LearningStage.objects.filter(is_active=True)
-        self.fields["stage"].required = True
-        self.fields["stage"].empty_label = _("Select learning stage")
-        self.fields["next_step"].choices = [("", _("Select an option"))] + list(
-            AdmissionEnquiry.NextStep.choices)
+        self.fields["stage"].required = False
+        self.fields["stage"].empty_label = _("Select a stage")
+        self.fields["next_step"].choices = list(AdmissionEnquiry.NextStep.choices)
+        self.fields["next_step"].required = False
+        self.fields["next_step"].initial = AdmissionEnquiry.NextStep.CALL
 
 
 class ContactForm(HoneypotMixin, forms.ModelForm):

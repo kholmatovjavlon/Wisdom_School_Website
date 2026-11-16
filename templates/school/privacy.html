@@ -1,9 +1,9 @@
 {% extends "base.html" %}{% load i18n %}
 {% block title %}{% translate "Privacy policy" %} — Wisdom School{% endblock %}
 {% block content %}
-{% translate "Privacy policy" as crumb %}{% translate "Your privacy" as l1 %}{% translate "matters to us." as l2 %}{% translate "How we handle the information you share with Wisdom School." as lead %}
-{% include "school/partials/page_intro.html" with crumb=crumb eyebrow=crumb line1=l1 line2=l2 lead=lead %}
-<section class="section bg-white">
+{% translate "Privacy policy" as title %}{% translate "How we handle the information you share with Wisdom School." as lead %}
+{% include "school/partials/page_head.html" with title=title lead=lead %}
+<section class="section">
   <div class="container prose">
     <h2>{% translate "What we collect" %}</h2>
     <p>{% translate "When you send an enquiry or a message, we receive the details you enter in the form: your name, contact details and your message." %}</p>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 22:28+0500\n"
+"POT-Creation-Date: 2026-11-16 15:21+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,8 @@ msgstr "Wisdom School"
 msgid "Site content and enquiries"
 msgstr "Содержимое сайта и заявки"
 
-#: school/admin.py:35
+#: school/admin.py:35 school/context_processors.py:15
+#: templates/school/home.html:219
 msgid "Contacts"
 msgstr "Контакты"
 
@@ -54,12 +55,12 @@ msgstr "Социальные сети"
 msgid "Header"
 msgstr "Шапка сайта"
 
-#: school/admin.py:60 school/models.py:78
+#: school/admin.py:60 school/models.py:84
 msgid "photo"
 msgstr "фото"
 
-#: school/admin.py:82 school/admin.py:93 school/models.py:121
-#: school/models.py:156
+#: school/admin.py:82 school/admin.py:93 school/models.py:127
+#: school/models.py:162
 msgid "image"
 msgstr "изображение"
 
@@ -79,81 +80,93 @@ msgstr "Отметить «в работе»"
 msgid "School website"
 msgstr "Сайт школы"
 
+#: school/context_processors.py:9 templates/base.html:121
+#: templates/school/home.html:36
+msgid "About"
+msgstr "О школе"
+
+#: school/context_processors.py:10 templates/base.html:122
+#: templates/school/home.html:59
+msgid "Learning"
+msgstr "Обучение"
+
+#: school/context_processors.py:11 templates/school/home.html:80
+msgid "Directions"
+msgstr "Направления"
+
+#: school/context_processors.py:12 templates/base.html:123
+#: templates/school/home.html:98
+msgid "Teachers"
+msgstr "Учителя"
+
+#: school/context_processors.py:13 templates/school/home.html:119
+msgid "Gallery"
+msgstr "Галерея"
+
+#: school/context_processors.py:14 templates/base.html:125
+msgid "FAQ"
+msgstr "Вопросы"
+
 #: school/forms.py:21
-msgid ""
-"I agree to be contacted about my enquiry and have read the privacy policy."
-msgstr ""
-"Я согласен(на), чтобы со мной связались по заявке, и ознакомлен(а) с "
-"политикой конфиденциальности."
+msgid "I agree to the processing of my personal data."
+msgstr "Я согласен(на) на обработку персональных данных."
 
 #: school/forms.py:27
-msgid "Parent / guardian name"
-msgstr "Имя родителя / опекуна"
+msgid "Parent's name"
+msgstr "Имя родителя"
 
-#: school/forms.py:28 school/forms.py:60
-msgid "Email address"
-msgstr "Электронная почта"
+#: school/forms.py:28 templates/school/home.html:223
+msgid "Phone"
+msgstr "Телефон"
 
 #: school/forms.py:29
-msgid "Phone number"
-msgstr "Номер телефона"
+msgid "Child's stage"
+msgstr "Ступень обучения ребёнка"
 
 #: school/forms.py:30
-msgid "Learning stage of interest"
-msgstr "Интересующая ступень обучения"
+msgid "How should we contact you?"
+msgstr "Как с вами связаться?"
 
-#: school/forms.py:31
-msgid "Preferred next step"
-msgstr "Предпочтительный следующий шаг"
+#: school/forms.py:33
+msgid "For example, Dilnoza"
+msgstr "Например, Дилноза"
 
-#: school/forms.py:32
-msgid "Anything you would like us to know?"
-msgstr "Что ещё нам стоит знать?"
+#: school/forms.py:44
+msgid "Select a stage"
+msgstr "Выберите ступень"
 
-#: school/forms.py:35 school/forms.py:65
-msgid "Your full name"
-msgstr "Ваше полное имя"
-
-#: school/forms.py:37
-msgid "Include country code"
-msgstr "С кодом страны, например +998"
-
-#: school/forms.py:39
-msgid "Tell us how we can help your family…"
-msgstr "Расскажите, чем мы можем помочь вашей семье…"
-
-#: school/forms.py:46
-msgid "Select learning stage"
-msgstr "Выберите ступень обучения"
-
-#: school/forms.py:47
-msgid "Select an option"
-msgstr "Выберите вариант"
-
-#: school/forms.py:53
+#: school/forms.py:52
 msgid ""
 "I have read the privacy policy and agree to be contacted about my message."
 msgstr ""
 "Я ознакомлен(а) с политикой конфиденциальности и согласен(на), чтобы со мной"
 " связались."
 
-#: school/forms.py:59
+#: school/forms.py:58
 msgid "Full name"
 msgstr "Полное имя"
 
-#: school/forms.py:61
+#: school/forms.py:59
+msgid "Email address"
+msgstr "Электронная почта"
+
+#: school/forms.py:60
 msgid "Subject"
 msgstr "Тема"
 
-#: school/forms.py:62
+#: school/forms.py:61
 msgid "Message"
 msgstr "Сообщение"
 
-#: school/forms.py:67
+#: school/forms.py:64
+msgid "Your full name"
+msgstr "Ваше полное имя"
+
+#: school/forms.py:66
 msgid "How can we help?"
 msgstr "Чем мы можем помочь?"
 
-#: school/forms.py:72
+#: school/forms.py:71
 msgid "Select a subject"
 msgstr "Выберите тему"
 
@@ -165,7 +178,7 @@ msgstr "девиз"
 msgid "Leave empty to use the standard text."
 msgstr "Оставьте пустым, чтобы использовать стандартный текст."
 
-#: school/models.py:13 school/models.py:200
+#: school/models.py:13 school/models.py:206
 msgid "phone"
 msgstr "телефон"
 
@@ -173,7 +186,7 @@ msgstr "телефон"
 msgid "second phone"
 msgstr "второй телефон"
 
-#: school/models.py:15 school/models.py:199 school/models.py:230
+#: school/models.py:15 school/models.py:205 school/models.py:236
 msgid "e-mail"
 msgstr "e-mail"
 
@@ -201,272 +214,270 @@ msgstr "настройки сайта"
 msgid "Site settings"
 msgstr "Настройки сайта"
 
-#: school/models.py:43
+#: school/models.py:49
 msgid "Light"
 msgstr "Светлый"
 
-#: school/models.py:44
+#: school/models.py:50
 msgid "Lavender"
 msgstr "Лавандовый"
 
-#: school/models.py:48 school/models.py:113
+#: school/models.py:54 school/models.py:119
 msgid "title"
 msgstr "название"
 
-#: school/models.py:49
+#: school/models.py:55
 msgid "short tagline"
 msgstr "короткая подпись"
 
-#: school/models.py:50
+#: school/models.py:56
 msgid "Shown in small capitals, e.g. “A joyful beginning”."
 msgstr "Показывается мелкими заглавными, например «Радостное начало»."
 
-#: school/models.py:51
+#: school/models.py:57
 msgid "summary for the home page"
 msgstr "описание для главной страницы"
 
-#: school/models.py:52
+#: school/models.py:58
 msgid "headline"
 msgstr "подзаголовок"
 
-#: school/models.py:53
+#: school/models.py:59
 msgid "description"
 msgstr "описание"
 
-#: school/models.py:54
+#: school/models.py:60
 msgid "highlights"
 msgstr "ключевые пункты"
 
-#: school/models.py:55
+#: school/models.py:61
 msgid "One item per line."
 msgstr "Один пункт на строку."
 
-#: school/models.py:56 school/models.py:79
+#: school/models.py:62 school/models.py:85
 msgid "card colour"
 msgstr "цвет карточки"
 
-#: school/models.py:58 school/models.py:81 school/models.py:96
-#: school/models.py:158 school/models.py:174
+#: school/models.py:64 school/models.py:87 school/models.py:102
+#: school/models.py:164 school/models.py:180
 msgid "order"
 msgstr "порядок"
 
-#: school/models.py:59 school/models.py:82 school/models.py:159
-#: school/models.py:175
+#: school/models.py:65 school/models.py:88 school/models.py:165
+#: school/models.py:181
 msgid "show on site"
 msgstr "показывать на сайте"
 
-#: school/models.py:63 school/models.py:201
+#: school/models.py:69 school/models.py:207
 msgid "learning stage"
 msgstr "ступень обучения"
 
-#: school/models.py:64
+#: school/models.py:70
 msgid "learning stages"
 msgstr "ступени обучения"
 
-#: school/models.py:75 school/models.py:229
+#: school/models.py:81 school/models.py:235
 msgid "full name"
 msgstr "ФИО"
 
-#: school/models.py:76
+#: school/models.py:82
 msgid "subject / role"
 msgstr "предмет / должность"
 
-#: school/models.py:77
+#: school/models.py:83
 msgid "short description"
 msgstr "краткое описание"
 
-#: school/models.py:86
+#: school/models.py:92
 msgid "teacher"
 msgstr "учитель"
 
-#: school/models.py:87
+#: school/models.py:93
 msgid "teachers"
 msgstr "учителя"
 
-#: school/models.py:94
+#: school/models.py:100
 msgid "name"
 msgstr "название"
 
-#: school/models.py:95 school/models.py:114
+#: school/models.py:101 school/models.py:120
 msgid "slug"
 msgstr "адрес (slug)"
 
-#: school/models.py:100
+#: school/models.py:106
 msgid "news category"
 msgstr "категория новостей"
 
-#: school/models.py:101
+#: school/models.py:107
 msgid "news categories"
 msgstr "категории новостей"
 
-#: school/models.py:115
+#: school/models.py:121
 msgid "Part of the page address. Filled in automatically if left empty."
 msgstr ""
 "Часть адреса страницы. Заполняется автоматически, если оставить пустым."
 
-#: school/models.py:116
+#: school/models.py:122
 msgid "category"
 msgstr "категория"
 
-#: school/models.py:118
+#: school/models.py:124
 msgid "short summary"
 msgstr "краткое описание"
 
-#: school/models.py:119
+#: school/models.py:125
 msgid "text"
 msgstr "текст"
 
-#: school/models.py:120
+#: school/models.py:126
 msgid "Separate paragraphs with an empty line."
 msgstr "Разделяйте абзацы пустой строкой."
 
-#: school/models.py:122
+#: school/models.py:128
 msgid "publication date"
 msgstr "дата публикации"
 
-#: school/models.py:123
+#: school/models.py:129
 msgid "published"
 msgstr "опубликовано"
 
-#: school/models.py:124
+#: school/models.py:130
 msgid "featured story"
 msgstr "главная новость"
 
-#: school/models.py:125
+#: school/models.py:131
 msgid "Shown large at the top of the news page."
 msgstr "Показывается крупно вверху страницы новостей."
 
-#: school/models.py:132
+#: school/models.py:138
 msgid "news post"
 msgstr "новость"
 
-#: school/models.py:133
+#: school/models.py:139
 msgid "news"
 msgstr "новости"
 
-#: school/models.py:157
+#: school/models.py:163
 msgid "caption"
 msgstr "подпись"
 
-#: school/models.py:160
+#: school/models.py:166
 msgid "added"
 msgstr "добавлено"
 
-#: school/models.py:164
+#: school/models.py:170
 msgid "gallery photo"
 msgstr "фото галереи"
 
-#: school/models.py:165
+#: school/models.py:171
 msgid "gallery"
 msgstr "галерея"
 
-#: school/models.py:172
+#: school/models.py:178
 msgid "question"
 msgstr "вопрос"
 
-#: school/models.py:173
+#: school/models.py:179
 msgid "answer"
 msgstr "ответ"
 
-#: school/models.py:179
+#: school/models.py:185
 msgid "admissions question"
 msgstr "вопрос о поступлении"
 
-#: school/models.py:180
+#: school/models.py:186
 msgid "admissions questions (FAQ)"
 msgstr "вопросы о поступлении (FAQ)"
 
-#: school/models.py:187
+#: school/models.py:193
 msgid "New"
 msgstr "Новая"
 
-#: school/models.py:188
+#: school/models.py:194
 msgid "In progress"
 msgstr "В работе"
 
-#: school/models.py:189
+#: school/models.py:195
 msgid "Done"
 msgstr "Обработана"
 
-#: school/models.py:194 templates/school/news_list.html:53
-msgid "Arrange a school visit"
-msgstr "Договориться о посещении школы"
+#: school/models.py:200
+msgid "Phone call"
+msgstr "Звонок"
 
-#: school/models.py:195
-msgid "Receive a phone call"
-msgstr "Получить звонок"
+#: school/models.py:201
+msgid "School tour"
+msgstr "Сразу на экскурсию"
 
-#: school/models.py:196
-msgid "Receive more information"
-msgstr "Получить больше информации"
+#: school/models.py:202
+msgid "Information by message"
+msgstr "Информация сообщением"
 
-#: school/models.py:198
+#: school/models.py:204
 msgid "parent / guardian name"
 msgstr "имя родителя / опекуна"
 
-#: school/models.py:203
+#: school/models.py:209
 msgid "preferred next step"
 msgstr "следующий шаг"
 
-#: school/models.py:205 school/models.py:232
+#: school/models.py:211 school/models.py:238
 msgid "message"
 msgstr "сообщение"
 
-#: school/models.py:206 school/models.py:233
+#: school/models.py:212 school/models.py:239
 msgid "consent to be contacted"
 msgstr "согласие на связь"
 
-#: school/models.py:207 school/models.py:234
+#: school/models.py:213 school/models.py:240
 msgid "site language"
 msgstr "язык сайта"
 
-#: school/models.py:208 school/models.py:235
+#: school/models.py:214 school/models.py:241
 msgid "status"
 msgstr "статус"
 
-#: school/models.py:210
+#: school/models.py:216
 msgid "staff notes"
 msgstr "заметки сотрудников"
 
-#: school/models.py:211 school/models.py:237
+#: school/models.py:217 school/models.py:243
 msgid "received"
 msgstr "получено"
 
-#: school/models.py:215
+#: school/models.py:221
 msgid "admissions enquiry"
 msgstr "заявка на поступление"
 
-#: school/models.py:216
+#: school/models.py:222
 msgid "admissions enquiries"
 msgstr "заявки на поступление"
 
-#: school/models.py:224
+#: school/models.py:230
 msgid "General question"
 msgstr "Общий вопрос"
 
-#: school/models.py:225 templates/base.html:69 templates/base.html:85
-#: templates/base.html:119 templates/school/admissions.html:2
-#: templates/school/contact.html:12
+#: school/models.py:231 templates/school/home.html:180
 msgid "Admissions"
 msgstr "Поступление"
 
-#: school/models.py:226
+#: school/models.py:232
 msgid "School visit"
 msgstr "Посещение школы"
 
-#: school/models.py:227
+#: school/models.py:233
 msgid "Other"
 msgstr "Другое"
 
-#: school/models.py:231
+#: school/models.py:237
 msgid "subject"
 msgstr "тема"
 
-#: school/models.py:241
+#: school/models.py:247
 msgid "contact message"
 msgstr "сообщение с сайта"
 
-#: school/models.py:242
+#: school/models.py:248
 msgid "contact messages"
 msgstr "сообщения с сайта"
 
@@ -506,1035 +517,421 @@ msgstr "kontakty/"
 msgid "privacy/"
 msgstr "konfidentsialnost/"
 
-#: school/views.py:54
-msgid ""
-"Thank you! Your enquiry has been received. Our admissions team will contact "
-"you soon."
-msgstr ""
-"Спасибо! Ваша заявка получена. Приёмная комиссия скоро свяжется с вами."
+#: school/views.py:69
+msgid "Thank you! Your enquiry has been received. We will call you back soon."
+msgstr "Спасибо! Заявка получена. Мы скоро вам перезвоним."
 
-#: school/views.py:118
-msgid "Thank you for your message. We will reply as soon as possible."
-msgstr "Спасибо за сообщение. Мы ответим как можно скорее."
-
-#: templates/base.html:7 templates/base.html:14
+#: templates/base.html:17 templates/base.html:24
 msgid "Wisdom School — private school in Tashkent"
 msgstr "Wisdom School — частная школа в Ташкенте"
 
-#: templates/base.html:8
+#: templates/base.html:18
 msgid ""
-"Wisdom School is a private school in Tashkent: an ambitious education with "
-"your child at its heart. Primary, middle and senior years."
+"Wisdom School is a private school in Tashkent: strong teaching in three "
+"languages, small classes and care for every child, from grade 1 to 11."
 msgstr ""
-"Wisdom School — частная школа в Ташкенте: амбициозное образование, в центре "
-"которого ваш ребёнок. Начальная, средняя и старшая школа."
+"Wisdom School — частная школа в Ташкенте: сильное обучение на трёх языках, "
+"небольшие классы и забота о каждом ребёнке с 1 по 11 класс."
 
-#: templates/base.html:15
-msgid "Curious minds. Confident futures."
-msgstr "Любознательные умы. Уверенное будущее."
+#: templates/base.html:25
+msgid "Knowledge, character and self-confidence."
+msgstr "Знания, характер и уверенность в себе."
 
-#: templates/base.html:41
+#: templates/base.html:54
 msgid "Skip to content"
 msgstr "Перейти к содержимому"
 
-#: templates/base.html:45
-msgid "A place to grow. A future to shape."
-msgstr "Место, где растут. Будущее, которое создают."
-
-#: templates/base.html:47
-msgid "Parent enquiries"
-msgstr "Для родителей"
-
-#: templates/base.html:49
+#: templates/base.html:67 templates/base.html:97
 msgid "Language"
 msgstr "Язык"
 
-#: templates/base.html:61 templates/base.html:66 templates/base.html:82
-#: templates/school/news_detail.html:12
-#: templates/school/partials/page_intro.html:4
+#: templates/base.html:76 templates/school/partials/page_head.html:3
 msgid "Home"
 msgstr "Главная"
 
-#: templates/base.html:65
+#: templates/base.html:78
+msgid "Private school · Tashkent"
+msgstr "Частная школа · Ташкент"
+
+#: templates/base.html:80
 msgid "Main menu"
 msgstr "Главное меню"
 
-#: templates/base.html:67 templates/base.html:83
-msgid "About"
-msgstr "О школе"
+#: templates/base.html:84
+msgid "Switch light / dark theme"
+msgstr "Переключить светлую / тёмную тему"
 
-#: templates/base.html:68 templates/base.html:84
-#: templates/school/academics.html:2
-msgid "Academics"
-msgstr "Обучение"
+#: templates/base.html:87 templates/base.html:100
+msgid "Enrol"
+msgstr "Записаться"
 
-#: templates/base.html:70 templates/base.html:86
-msgid "Faculty"
-msgstr "Учителя"
-
-#: templates/base.html:71 templates/base.html:87
-msgid "News"
-msgstr "Новости"
-
-#: templates/base.html:72 templates/base.html:89
-#: templates/school/contact.html:2
-msgid "Contact"
-msgstr "Контакты"
-
-#: templates/base.html:74 templates/base.html:91
-msgid "Enquire now"
-msgstr "Оставить заявку"
-
-#: templates/base.html:75
+#: templates/base.html:88
 msgid "Menu"
 msgstr "Меню"
 
-#: templates/base.html:88 templates/base.html:113
-#: templates/school/gallery.html:2 templates/school/gallery.html:5
-msgid "Gallery"
-msgstr "Галерея"
-
-#: templates/base.html:105
-msgid "Curious minds. Strong values."
-msgstr "Любознательные умы. Крепкие ценности."
-
-#: templates/base.html:105
-msgid "A world of possibilities."
-msgstr "Мир возможностей."
-
-#: templates/base.html:108 templates/school/academics.html:49
-msgid "Explore"
-msgstr "Узнать больше"
-
-#: templates/base.html:110 templates/school/about.html:12
-msgid "Our story"
-msgstr "Наша история"
-
-#: templates/base.html:111 templates/school/academics.html:5
-msgid "Learning at Wisdom"
-msgstr "Обучение в Wisdom"
-
-#: templates/base.html:112 templates/school/faculty.html:2
-#: templates/school/faculty.html:5
-msgid "Our educators"
-msgstr "Наши учителя"
-
-#: templates/base.html:117
-msgid "Join our community"
-msgstr "Присоединяйтесь к нам"
-
-#: templates/base.html:120 templates/school/news_detail.html:12
-#: templates/school/news_list.html:2 templates/school/news_list.html:5
-msgid "News & school life"
-msgstr "Новости и школьная жизнь"
-
-#: templates/base.html:121
-msgid "Contact the school"
-msgstr "Связаться со школой"
-
-#: templates/base.html:125
-msgid "Let’s talk"
-msgstr "Давайте поговорим"
-
-#: templates/base.html:127
-msgid "Plan a visit"
-msgstr "Запланировать визит"
-
-#: templates/base.html:128 templates/school/admissions.html:35
-msgid "Make an enquiry"
-msgstr "Оставить заявку"
-
-#: templates/base.html:139
-msgid "All rights reserved."
-msgstr "Все права защищены."
-
-#: templates/base.html:141 templates/school/privacy.html:2
-#: templates/school/privacy.html:4
-msgid "Privacy policy"
-msgstr "Политика конфиденциальности"
-
-#: templates/base.html:143 templates/school/privacy.html:14
-msgid "Accessibility"
-msgstr "Доступность"
-
-#: templates/school/about.html:2
-msgid "About the school"
-msgstr "О школе"
-
-#: templates/school/about.html:3 templates/school/about.html:5
-msgid "Get to know the people, principles and purpose behind Wisdom School."
-msgstr "Познакомьтесь с людьми, принципами и целями Wisdom School."
-
-#: templates/school/about.html:5
-msgid "Our school"
-msgstr "Наша школа"
-
-#: templates/school/about.html:5
-msgid "Rooted in values."
-msgstr "Опираемся на ценности."
-
-#: templates/school/about.html:5
-msgid "Open to possibility."
-msgstr "Открыты возможностям."
-
-#: templates/school/about.html:10
-msgid "School courtyard"
-msgstr "Школьный двор"
-
-#: templates/school/about.html:13
-msgid "An education with"
-msgstr "Образование"
-
-#: templates/school/about.html:13
-msgid "purpose and heart."
-msgstr "с целью и душой."
-
-#: templates/school/about.html:14
+#: templates/base.html:116
 msgid ""
-"We believe a school should open doors — to new knowledge, new perspectives "
-"and a deeper understanding of ourselves."
+"A private general education school in Tashkent. Knowledge, character and "
+"self-confidence."
 msgstr ""
-"Мы верим, что школа должна открывать двери — к новым знаниям, новым взглядам"
-" и более глубокому пониманию себя."
-
-#: templates/school/about.html:15
-msgid ""
-"Wisdom School brings academic learning together with character, creativity "
-"and community. Here, students are encouraged to work hard, think "
-"independently and treat others with care."
-msgstr ""
-"Wisdom School объединяет академическое обучение с воспитанием характера, "
-"творчеством и сообществом. Здесь учеников поддерживают в усердной работе, "
-"самостоятельном мышлении и заботливом отношении к другим."
-
-#: templates/school/about.html:22
-msgid "The values we live"
-msgstr "Ценности, которыми мы живём"
-
-#: templates/school/about.html:23
-msgid "What matters stays with us."
-msgstr "Важное остаётся с нами."
-
-#: templates/school/about.html:25
-msgid "Curiosity"
-msgstr "Любознательность"
-
-#: templates/school/about.html:25
-msgid "Ask questions. Look closer. Find delight in discovering something new."
-msgstr "Задавать вопросы. Присматриваться. Радоваться новым открытиям."
-
-#: templates/school/about.html:26
-msgid "Integrity"
-msgstr "Честность"
-
-#: templates/school/about.html:26
-msgid ""
-"Act with honesty, take responsibility and do the right thing with courage."
-msgstr ""
-"Поступать честно, брать ответственность и смело делать правильный выбор."
-
-#: templates/school/about.html:27
-msgid "Respect"
-msgstr "Уважение"
-
-#: templates/school/about.html:27
-msgid "Listen with an open mind and value the different people around you."
-msgstr "Слушать с открытым сердцем и ценить разных людей вокруг."
-
-#: templates/school/about.html:28
-msgid "Ambition"
-msgstr "Целеустремлённость"
-
-#: templates/school/about.html:28
-msgid "Set meaningful goals and keep growing through effort and reflection."
-msgstr "Ставить значимые цели и расти через труд и размышления."
-
-#: templates/school/about.html:36
-msgid "Our approach"
-msgstr "Наш подход"
-
-#: templates/school/about.html:37
-msgid "The whole child."
-msgstr "Ребёнок целиком."
-
-#: templates/school/about.html:37
-msgid "The bigger picture."
-msgstr "Широкий взгляд."
-
-#: templates/school/about.html:38
-msgid "An environment where achievement and wellbeing belong together."
-msgstr "Среда, где успехи и благополучие идут рука об руку."
-
-#: templates/school/about.html:41
-msgid "Learning that goes deeper"
-msgstr "Глубокое обучение"
-
-#: templates/school/about.html:41
-msgid ""
-"Rich subject knowledge, thoughtful discussion and the confidence to ask why."
-msgstr ""
-"Глубокие знания предметов, вдумчивые обсуждения и смелость спрашивать "
-"«почему»."
-
-#: templates/school/about.html:42
-msgid "Care that makes a difference"
-msgstr "Забота, которая важна"
-
-#: templates/school/about.html:42
-msgid ""
-"A culture of belonging, where students feel seen, supported and safe to try."
-msgstr ""
-"Культура принадлежности, где ученики чувствуют, что их видят, поддерживают и"
-" им не страшно пробовать."
-
-#: templates/school/about.html:43
-msgid "A community that grows together"
-msgstr "Сообщество, которое растёт вместе"
-
-#: templates/school/about.html:43
-msgid "A close partnership between students, educators and families."
-msgstr "Тесное партнёрство учеников, учителей и семей."
-
-#: templates/school/academics.html:3 templates/school/academics.html:5
-msgid ""
-"A thoughtful balance of academic challenge, creative exploration and "
-"personal growth."
-msgstr ""
-"Продуманный баланс академических задач, творческого поиска и личностного "
-"роста."
-
-#: templates/school/academics.html:5
-msgid "A strong foundation."
-msgstr "Прочный фундамент."
-
-#: templates/school/academics.html:5
-msgid "A limitless outlook."
-msgstr "Безграничные горизонты."
-
-#: templates/school/academics.html:11
-msgid "A continuous learning journey"
-msgstr "Непрерывный путь обучения"
-
-#: templates/school/academics.html:12
-msgid "Different stages. One shared ambition."
-msgstr "Разные ступени. Одна общая цель."
-
-#: templates/school/academics.html:30
-msgid "Beyond the classroom"
-msgstr "За пределами класса"
-
-#: templates/school/academics.html:31
-msgid "Where interests"
-msgstr "Где интересы"
-
-#: templates/school/academics.html:31
-msgid "become passions."
-msgstr "становятся увлечениями."
-
-#: templates/school/academics.html:32
-msgid ""
-"Space to experiment, create, move and lead. Enrichment gives students more "
-"ways to discover their strengths."
-msgstr ""
-"Пространство, чтобы экспериментировать, творить, двигаться и вести за собой."
-" Дополнительные занятия помогают ученикам раскрыть свои сильные стороны."
-
-#: templates/school/academics.html:34
-msgid "STEM & robotics"
-msgstr "STEM и робототехника"
-
-#: templates/school/academics.html:35
-msgid "Chess & strategic thinking"
-msgstr "Шахматы и стратегическое мышление"
-
-#: templates/school/academics.html:36
-msgid "Creative arts & expression"
-msgstr "Творчество и самовыражение"
-
-#: templates/school/academics.html:37
-msgid "Sport & wellbeing"
-msgstr "Спорт и здоровье"
-
-#: templates/school/academics.html:40
-msgid "Collaborative science learning"
-msgstr "Совместное изучение науки"
-
-#: templates/school/academics.html:45
-msgid "A day at Wisdom"
-msgstr "Один день в Wisdom"
-
-#: templates/school/academics.html:46
-msgid "Purpose in every part of the day."
-msgstr "Смысл в каждой части дня."
-
-#: templates/school/academics.html:48
-msgid "Connect"
-msgstr "Знакомство"
-
-#: templates/school/academics.html:48
-msgid "A welcoming start, time to check in and prepare for learning."
-msgstr "Тёплое начало дня, время поздороваться и настроиться на учёбу."
-
-#: templates/school/academics.html:49
-msgid "Focused lessons, lively questions and practical discovery."
-msgstr "Сосредоточенные уроки, живые вопросы и практические открытия."
-
-#: templates/school/academics.html:50
-msgid "Create"
-msgstr "Творчество"
-
-#: templates/school/academics.html:50
-msgid "Opportunities to make, move, collaborate and try something new."
-msgstr "Возможности создавать, двигаться, работать вместе и пробовать новое."
-
-#: templates/school/academics.html:51
-msgid "Reflect"
-msgstr "Осмысление"
-
-#: templates/school/academics.html:51
-msgid "Celebrate progress and look ahead to the next challenge."
-msgstr "Отмечать успехи и смотреть на следующую цель."
-
-#: templates/school/admissions.html:3
-msgid ""
-"Find your place in a school community that sees the potential in every "
-"child. Make an admissions enquiry or arrange a visit."
-msgstr ""
-"Найдите своё место в школьном сообществе, которое видит потенциал в каждом "
-"ребёнке. Оставьте заявку или договоритесь о визите."
-
-#: templates/school/admissions.html:5
-msgid "Join Wisdom School"
-msgstr "Поступление в Wisdom School"
-
-#: templates/school/admissions.html:5
-msgid "A bright future"
-msgstr "Светлое будущее"
-
-#: templates/school/admissions.html:5
-msgid "begins here."
-msgstr "начинается здесь."
-
-#: templates/school/admissions.html:5
-msgid ""
-"Find your place in a school community that sees the potential in every "
-"child."
-msgstr ""
-"Найдите своё место в школьном сообществе, которое видит потенциал в каждом "
-"ребёнке."
-
-#: templates/school/admissions.html:11
-msgid "A warm welcome"
-msgstr "Тёплый приём"
-
-#: templates/school/admissions.html:12
-msgid "The right school"
-msgstr "Правильную школу"
-
-#: templates/school/admissions.html:12
-msgid "is a feeling."
-msgstr "чувствуешь сердцем."
-
-#: templates/school/admissions.html:13
-msgid ""
-"Choosing a school is an important decision. We invite you to ask questions, "
-"explore our approach and picture your child as part of our community."
-msgstr ""
-"Выбор школы — важное решение. Мы приглашаем вас задавать вопросы, узнать наш"
-" подход и представить своего ребёнка частью нашего сообщества."
-
-#: templates/school/admissions.html:15
-msgid "Students at Wisdom"
-msgstr "Ученики Wisdom"
-
-#: templates/school/admissions.html:21
-msgid "The admissions journey"
-msgstr "Как проходит поступление"
-
-#: templates/school/admissions.html:22
-msgid "Let’s take the next step. Together."
-msgstr "Сделаем следующий шаг. Вместе."
-
-#: templates/school/admissions.html:24
-msgid "Start a conversation"
-msgstr "Начните разговор"
-
-#: templates/school/admissions.html:24
-msgid "Tell us about your child and what matters most to your family."
-msgstr "Расскажите о ребёнке и о том, что важнее всего для вашей семьи."
-
-#: templates/school/admissions.html:25
-msgid "Visit the school"
-msgstr "Посетите школу"
-
-#: templates/school/admissions.html:25
-msgid "Experience the atmosphere, meet our team and explore the campus."
-msgstr "Почувствуйте атмосферу, познакомьтесь с командой и осмотрите кампус."
-
-#: templates/school/admissions.html:26
-msgid "Get to know each other"
-msgstr "Познакомимся ближе"
-
-#: templates/school/admissions.html:26
-msgid "Discuss your child’s learning journey and the right next steps."
-msgstr "Обсудим путь обучения ребёнка и подходящие следующие шаги."
-
-#: templates/school/admissions.html:27
-msgid "Begin your chapter"
-msgstr "Начните новую главу"
-
-#: templates/school/admissions.html:27
-msgid "Receive guidance from our team as you prepare to join the community."
-msgstr "Наша команда поможет вам подготовиться к вступлению в сообщество."
-
-#: templates/school/admissions.html:36
-msgid "Tell us a little"
-msgstr "Расскажите немного"
-
-#: templates/school/admissions.html:36
-msgid "about your family."
-msgstr "о вашей семье."
-
-#: templates/school/admissions.html:37
-msgid ""
-"Our admissions team can help you explore learning stages, arrange a visit "
-"and understand the next steps."
-msgstr ""
-"Приёмная комиссия поможет выбрать ступень обучения, договориться о визите и "
-"разобраться в следующих шагах."
-
-#: templates/school/admissions.html:39
-msgid "A conversation, not a commitment."
-msgstr "Разговор, а не обязательство."
-
-#: templates/school/admissions.html:40
-msgid ""
-"You do not need to have everything decided. We are happy to help you find "
-"your way."
-msgstr "Не нужно заранее всё решать. Мы с радостью поможем вам определиться."
-
-#: templates/school/admissions.html:47 templates/school/contact.html:43
-msgid "Please check the highlighted fields."
-msgstr "Пожалуйста, проверьте отмеченные поля."
-
-#: templates/school/admissions.html:48 templates/school/contact.html:44
-msgid "Fields marked * are required."
-msgstr "Поля, отмеченные *, обязательны."
-
-#: templates/school/admissions.html:62
-msgid "I agree to be contacted about my enquiry and have read the"
-msgstr "Я согласен(на), чтобы со мной связались по заявке, и ознакомлен(а) с"
-
-#: templates/school/admissions.html:62 templates/school/contact.html:54
-msgid "privacy policy"
-msgstr "политикой конфиденциальности"
-
-#: templates/school/admissions.html:65
-msgid "Send enquiry"
-msgstr "Отправить заявку"
-
-#: templates/school/admissions.html:74
-msgid "Your questions, answered"
-msgstr "Ответы на ваши вопросы"
-
-#: templates/school/admissions.html:75
-msgid "A little clarity"
-msgstr "Немного ясности"
-
-#: templates/school/admissions.html:75
-msgid "goes a long way."
-msgstr "очень помогает."
-
-#: templates/school/contact.html:3 templates/school/contact.html:5
-msgid ""
-"Whether you are exploring a place or planning a visit, we are here to help."
-msgstr ""
-"Хотите узнать о местах или запланировать визит — мы всегда готовы помочь."
-
-#: templates/school/contact.html:5
+"Частная общеобразовательная школа в Ташкенте. Знания, характер и уверенность"
+" в себе."
+
+#: templates/base.html:119
+msgid "Sections"
+msgstr "Разделы"
+
+#: templates/base.html:124 templates/school/home.html:141
+#: templates/school/news_detail.html:9 templates/school/news_list.html:2
+msgid "News"
+msgstr "Новости"
+
+#: templates/base.html:129
 msgid "Get in touch"
 msgstr "Связаться с нами"
 
-#: templates/school/contact.html:5
-msgid "Let’s start"
-msgstr "Давайте начнём"
+#: templates/base.html:138
+msgid "All rights reserved."
+msgstr "Все права защищены."
 
-#: templates/school/contact.html:5
-msgid "a conversation."
-msgstr "разговор."
-
-#: templates/school/contact.html:13
-msgid "For places, learning stages and joining our community."
-msgstr "О свободных местах, ступенях обучения и поступлении."
-
-#: templates/school/contact.html:14 templates/school/home.html:10
-msgid "Explore admissions"
-msgstr "О поступлении"
-
-#: templates/school/contact.html:18
-msgid "General enquiries"
-msgstr "Общие вопросы"
-
-#: templates/school/contact.html:19
-msgid "For school information and questions about Wisdom."
-msgstr "Информация о школе и вопросы о Wisdom."
-
-#: templates/school/contact.html:21
-msgid "Send a message below"
-msgstr "Напишите нам ниже"
-
-#: templates/school/contact.html:25
-msgid "Visit our school"
-msgstr "Посетите нашу школу"
-
-#: templates/school/contact.html:26
-msgid "See learning in action and meet the people behind it."
-msgstr ""
-"Посмотрите на обучение вживую и познакомьтесь с людьми, которые его создают."
-
-#: templates/school/contact.html:27 templates/school/partials/cta_band.html:4
-msgid "Arrange a visit"
-msgstr "Договориться о визите"
-
-#: templates/school/contact.html:35
-msgid "We are here to help"
-msgstr "Мы готовы помочь"
-
-#: templates/school/contact.html:36
-msgid "Every good connection"
-msgstr "Каждое хорошее знакомство"
-
-#: templates/school/contact.html:36
-msgid "starts with hello."
-msgstr "начинается со «здравствуйте»."
-
-#: templates/school/contact.html:37
-msgid "Have a question about Wisdom School?"
-msgstr "Есть вопрос о Wisdom School?"
-
-#: templates/school/contact.html:37
-msgid "Leave a message and let us know the best way to reach you."
-msgstr "Оставьте сообщение и укажите, как с вами удобнее связаться."
-
-#: templates/school/contact.html:38
-msgid ""
-"Your information stays with our team and is only used to respond to your "
-"enquiry."
-msgstr ""
-"Ваши данные остаются у нашей команды и используются только для ответа на "
-"ваше обращение."
-
-#: templates/school/contact.html:54
-msgid "I have read the"
-msgstr "Я ознакомлен(а) с"
-
-#: templates/school/contact.html:54
-msgid "and agree to be contacted about my message."
-msgstr "и согласен(на), чтобы со мной связались."
-
-#: templates/school/contact.html:57
-msgid "Send message"
-msgstr "Отправить сообщение"
-
-#: templates/school/contact.html:64
-msgid "Visit Wisdom School campus"
-msgstr "Кампус Wisdom School"
-
-#: templates/school/contact.html:66
-msgid "Come and meet us"
-msgstr "Приходите познакомиться"
-
-#: templates/school/contact.html:67
-msgid "A closer look"
-msgstr "Ближе посмотрите"
-
-#: templates/school/contact.html:67
-msgid "at your next chapter."
-msgstr "на новую главу."
-
-#: templates/school/contact.html:68
-msgid ""
-"Walk the campus, discover our learning spaces and ask the questions that "
-"matter to your family."
-msgstr ""
-"Прогуляйтесь по кампусу, посмотрите учебные пространства и задайте важные "
-"для вашей семьи вопросы."
-
-#: templates/school/contact.html:70
-msgid "Before your visit"
-msgstr "Перед визитом"
-
-#: templates/school/contact.html:70
-msgid "Please arrange a time with our school team."
-msgstr "Пожалуйста, согласуйте время с нашей командой."
-
-#: templates/school/contact.html:71
-msgid "Getting here"
-msgstr "Как добраться"
-
-#: templates/school/contact.html:71
-msgid "Open map"
-msgstr "Открыть карту"
-
-#: templates/school/contact.html:71
-msgid "Ask our team for the campus address and directions."
-msgstr "Уточните адрес и маршрут у нашей команды."
-
-#: templates/school/faculty.html:3 templates/school/faculty.html:5
-msgid "Meet the people who turn curiosity into understanding, every day."
-msgstr ""
-"Познакомьтесь с людьми, которые каждый день превращают любопытство в "
-"понимание."
-
-#: templates/school/faculty.html:5
-msgid "Great teaching."
-msgstr "Сильное преподавание."
-
-#: templates/school/faculty.html:5
-msgid "Extraordinary possibilities."
-msgstr "Необыкновенные возможности."
-
-#: templates/school/faculty.html:10
-msgid "The people behind the learning"
-msgstr "Люди, которые учат"
-
-#: templates/school/faculty.html:11
-msgid "Expertise, with a human touch."
-msgstr "Профессионализм с человеческим лицом."
-
-#: templates/school/faculty.html:27
-msgid "Teacher profiles will appear here soon."
-msgstr "Скоро здесь появятся профили учителей."
-
-#: templates/school/faculty.html:34
-msgid "A shared commitment"
-msgstr "Общее обязательство"
-
-#: templates/school/faculty.html:35
-msgid "We teach subjects."
-msgstr "Мы учим предметам."
-
-#: templates/school/faculty.html:35
-msgid "We inspire people."
-msgstr "Мы вдохновляем людей."
-
-#: templates/school/faculty.html:36
-msgid ""
-"Great teaching combines knowledge, care and the belief that every student "
-"can grow."
-msgstr ""
-"Хорошее преподавание соединяет знания, заботу и веру в то, что каждый ученик"
-" может расти."
-
-#: templates/school/faculty.html:39
-msgid "Thoughtful guidance"
-msgstr "Внимательное наставничество"
-
-#: templates/school/faculty.html:39
-msgid ""
-"Knowing each student, noticing progress and offering the right challenge."
-msgstr ""
-"Знать каждого ученика, замечать прогресс и предлагать подходящие задачи."
-
-#: templates/school/faculty.html:40
-msgid "Learning that stays alive"
-msgstr "Живое обучение"
-
-#: templates/school/faculty.html:40
-msgid ""
-"Bringing ideas into the real world through discussion, practice and inquiry."
-msgstr ""
-"Переносить идеи в реальный мир через обсуждение, практику и исследование."
-
-#: templates/school/faculty.html:41
-msgid "Growing together"
-msgstr "Расти вместе"
-
-#: templates/school/faculty.html:41
-msgid "Sharing ideas and reflecting on teaching as a community of educators."
-msgstr "Делиться идеями и осмыслять преподавание как сообщество учителей."
-
-#: templates/school/gallery.html:3 templates/school/gallery.html:5
-msgid "Moments from everyday life at Wisdom School."
-msgstr "Моменты из повседневной жизни Wisdom School."
-
-#: templates/school/gallery.html:5
-msgid "Moments"
-msgstr "Моменты,"
-
-#: templates/school/gallery.html:5
-msgid "worth remembering."
-msgstr "которые хочется помнить."
-
-#: templates/school/gallery.html:18
-msgid "Photos will appear here soon."
-msgstr "Скоро здесь появятся фотографии."
-
-#: templates/school/home.html:5
-msgid "Welcome to Wisdom School"
-msgstr "Добро пожаловать в Wisdom School"
+#: templates/base.html:139 templates/school/home.html:206
+#: templates/school/privacy.html:2 templates/school/privacy.html:4
+msgid "Privacy policy"
+msgstr "Политика конфиденциальности"
 
 #: templates/school/home.html:6
-msgid "Curious minds."
-msgstr "Любознательные умы."
-
-#: templates/school/home.html:6
-msgid "Confident futures."
-msgstr "Уверенное будущее."
+msgid "Admissions open for the 2026/27 school year"
+msgstr "Открыт приём на 2026/27 учебный год"
 
 #: templates/school/home.html:7
+msgid "Knowledge, character"
+msgstr "Знания, характер"
+
+#: templates/school/home.html:7
+msgid "and"
+msgstr "и"
+
+#: templates/school/home.html:7
+msgid "self-confidence"
+msgstr "уверенность в себе"
+
+#: templates/school/home.html:8
 msgid ""
-"An education that goes beyond the classroom. A community where every child "
-"is known, challenged and inspired to grow."
+"A private school in Tashkent’s Shaykhontohur district. A strong programme in"
+" three languages, small classes and attention to every child, from grade 1 "
+"to 11."
 msgstr ""
-"Образование, которое выходит за пределы класса. Сообщество, где каждого "
-"ребёнка знают, ставят перед ним интересные задачи и вдохновляют расти."
+"Частная школа в Шайхонтахурском районе Ташкента. Сильная программа на трёх "
+"языках, небольшие классы и внимание к каждому ребёнку — с 1 по 11 класс."
 
-#: templates/school/home.html:9
-msgid "Discover Wisdom"
-msgstr "Узнать о Wisdom"
+#: templates/school/home.html:10 templates/school/home.html:181
+msgid "Book a school tour"
+msgstr "Записаться на экскурсию"
 
-#: templates/school/home.html:13
-msgid "Knowledge"
-msgstr "Знания"
+#: templates/school/home.html:11
+msgid "About the school"
+msgstr "О школе"
 
 #: templates/school/home.html:14
-msgid "Character"
-msgstr "Характер"
+msgid "grades"
+msgstr "классы"
 
 #: templates/school/home.html:15
-msgid "Possibility"
-msgstr "Возможности"
+msgid "languages of study"
+msgstr "языка обучения"
 
-#: templates/school/home.html:19
+#: templates/school/home.html:16
+msgid "up to 16"
+msgstr "до 16"
+
+#: templates/school/home.html:16
+msgid "pupils per class"
+msgstr "учеников в классе"
+
+#: templates/school/home.html:17
+msgid "directions"
+msgstr "направления"
+
+#: templates/school/home.html:21
 msgid "Students learning together"
 msgstr "Ученики учатся вместе"
 
-#: templates/school/home.html:26
-msgid "The Wisdom way"
-msgstr "Путь Wisdom"
+#: templates/school/home.html:24
+msgid "Free school tour"
+msgstr "Бесплатная экскурсия"
 
-#: templates/school/home.html:27
-msgid "More than a school."
-msgstr "Больше, чем школа."
+#: templates/school/home.html:24
+msgid "Get to know the school in person"
+msgstr "Познакомьтесь со школой лично"
 
-#: templates/school/home.html:27
-msgid "A place to become."
-msgstr "Место, где становятся собой."
+#: templates/school/home.html:33
+msgid "Our school campus"
+msgstr "Кампус нашей школы"
 
-#: templates/school/home.html:30
-msgid "An ambitious education,"
-msgstr "Амбициозное образование,"
+#: templates/school/home.html:37
+msgid "A school where every child is known by name"
+msgstr "Школа, где каждого ребёнка знают по имени"
 
-#: templates/school/home.html:30
-msgid "with your child at its heart."
-msgstr "в центре которого — ваш ребёнок."
-
-#: templates/school/home.html:31
+#: templates/school/home.html:38
 msgid ""
-"At Wisdom School, we nurture the whole learner. Academic depth sits "
-"alongside creativity, character and care — helping young people discover "
-"what they can do and who they want to become."
+"Wisdom School is a private general education school in Tashkent. We combine "
+"solid knowledge, character education and modern skills so children move "
+"confidently to university and adult life."
 msgstr ""
-"В Wisdom School мы развиваем ученика всесторонне. Глубокие академические "
-"знания сочетаются с творчеством, характером и заботой — это помогает детям "
-"понять, на что они способны и кем хотят стать."
+"Wisdom School — частная общеобразовательная школа в Ташкенте. Мы соединяем "
+"крепкие знания, воспитание характера и современные навыки, чтобы дети "
+"уверенно шли в университет и во взрослую жизнь."
 
-#: templates/school/home.html:32
-msgid "Get to know our school"
-msgstr "Познакомиться со школой"
+#: templates/school/home.html:41
+msgid "State curriculum plus in-depth English"
+msgstr "Государственная программа плюс углублённый английский"
 
 #: templates/school/home.html:42
-msgid "Learning with purpose"
-msgstr "Обучение с целью"
+msgid "Classes of up to 16 pupils: the teacher sees everyone"
+msgstr "Классы до 16 учеников — учитель видит каждого"
 
 #: templates/school/home.html:43
-msgid "Room to grow. At every stage."
-msgstr "Пространство для роста. На каждом этапе."
+msgid "Safe campus, meals and after-school care"
+msgstr "Безопасный кампус, питание и продлёнка"
 
-#: templates/school/home.html:45
-msgid "Explore academics"
-msgstr "Об обучении"
+#: templates/school/home.html:48
+msgid "Care and safety"
+msgstr "Забота и безопасность"
 
-#: templates/school/home.html:54
-msgid "Discover more"
-msgstr "Подробнее"
+#: templates/school/home.html:48
+msgid "A friendly atmosphere where children feel calm and curious."
+msgstr "Дружелюбная атмосфера, где ребёнку спокойно и интересно учиться."
 
-#: templates/school/home.html:64
-msgid "Our welcoming school campus"
-msgstr "Наш уютный школьный кампус"
+#: templates/school/home.html:49
+msgid "Strong academic base"
+msgstr "Сильная академическая база"
 
-#: templates/school/home.html:66
-msgid "Life at Wisdom"
-msgstr "Жизнь в Wisdom"
+#: templates/school/home.html:49
+msgid "Deep knowledge in core subjects and olympiad preparation."
+msgstr "Глубокие знания по ключевым предметам и подготовка к олимпиадам."
 
-#: templates/school/home.html:67
-msgid "Big ideas."
-msgstr "Большие идеи."
+#: templates/school/home.html:50
+msgid "Leadership and character"
+msgstr "Лидерство и характер"
 
-#: templates/school/home.html:67
-msgid "Everyday discoveries."
-msgstr "Открытия каждый день."
+#: templates/school/home.html:50
+msgid "We teach responsibility, respect and the ability to lead."
+msgstr "Учим ответственности, уважению и умению вести за собой."
 
-#: templates/school/home.html:68
+#: templates/school/home.html:60
+msgid "Three stages, one path"
+msgstr "Три ступени — один путь"
+
+#: templates/school/home.html:61
 msgid ""
-"Learning happens everywhere: in a lively classroom, across a chessboard, on "
-"the sports field and in the friendships that last."
+"From first letters to university entrance: each stage prepares for the next."
 msgstr ""
-"Учёба происходит везде: в живом классе, за шахматной доской, на спортивной "
-"площадке и в дружбе на долгие годы."
-
-#: templates/school/home.html:70
-msgid "Science & technology"
-msgstr "Наука и технологии"
-
-#: templates/school/home.html:71
-msgid "Arts, sport & expression"
-msgstr "Искусство, спорт и самовыражение"
-
-#: templates/school/home.html:72
-msgid "Chess & critical thinking"
-msgstr "Шахматы и критическое мышление"
+"От первых букв до поступления в университет: каждый этап готовит к "
+"следующему."
 
 #: templates/school/home.html:81
-msgid "A thoughtful education."
-msgstr "Вдумчивое образование."
-
-#: templates/school/home.html:81
-msgid "A meaningful difference."
-msgstr "Значимый результат."
+msgid "Four strengths, like on our crest"
+msgstr "Четыре силы — как на нашем гербе"
 
 #: templates/school/home.html:82
-msgid "Why families choose Wisdom"
-msgstr "Почему семьи выбирают Wisdom"
+msgid ""
+"The computer, the atom, the graduation cap and the chess knight on the "
+"Wisdom School crest are what the school lives by every day."
+msgstr ""
+"Компьютер, атом, академическая шапочка и шахматный конь на гербе Wisdom "
+"School — это то, чем школа живёт каждый день."
 
 #: templates/school/home.html:85
-msgid "Known as an individual"
-msgstr "Каждого знают лично"
+msgid "IT and technology"
+msgstr "IT и технологии"
 
 #: templates/school/home.html:85
-msgid "Personal attention that recognises each learner’s strengths."
-msgstr "Личное внимание, которое раскрывает сильные стороны каждого."
+msgid "Computer literacy, algorithms and first projects."
+msgstr "Компьютерная грамотность, алгоритмы и первые проекты."
 
 #: templates/school/home.html:86
-msgid "Challenged to think"
-msgstr "Учим думать"
+msgid "Natural sciences"
+msgstr "Естественные науки"
 
 #: templates/school/home.html:86
-msgid "Rigorous learning that asks better questions."
-msgstr "Серьёзное обучение, которое учит задавать правильные вопросы."
+msgid "Lab experiments in physics, chemistry and biology."
+msgstr "Опыты в лаборатории: физика, химия, биология."
 
 #: templates/school/home.html:87
-msgid "Ready for the world"
-msgstr "Готовы к миру"
+msgid "Path to university"
+msgstr "Путь в университет"
 
 #: templates/school/home.html:87
-msgid "Strong values and the confidence to take the next step."
-msgstr "Крепкие ценности и уверенность для следующего шага."
+msgid "Exam preparation, IELTS and SAT, career guidance."
+msgstr "Подготовка к экзаменам, IELTS и SAT, профориентация."
 
-#: templates/school/home.html:97
-msgid "From our community"
-msgstr "Из жизни сообщества"
+#: templates/school/home.html:88
+msgid "Chess and logic"
+msgstr "Шахматы и логика"
 
-#: templates/school/home.html:98
-msgid "The latest at Wisdom"
-msgstr "Последние новости Wisdom"
+#: templates/school/home.html:88
+msgid "Strategic thinking and planning several moves ahead."
+msgstr "Стратегическое мышление и умение просчитывать ходы."
 
-#: templates/school/home.html:100 templates/school/news_detail.html:20
-msgid "All news & events"
-msgstr "Все новости и события"
+#: templates/school/home.html:90
+msgid "Teaching in Uzbek, Russian and English"
+msgstr "Обучение на узбекском, русском и английском языках"
 
-#: templates/school/news_detail.html:11
-#: templates/school/partials/page_intro.html:3
-msgid "Breadcrumbs"
-msgstr "Навигационная цепочка"
+#: templates/school/home.html:99
+msgid "Mentors families trust"
+msgstr "Наставники, которым доверяют"
 
-#: templates/school/news_detail.html:27
-msgid "More stories"
-msgstr "Ещё истории"
+#: templates/school/home.html:100
+msgid ""
+"Experienced teachers who love their subject and know how to spark children’s"
+" interest."
+msgstr ""
+"Опытные педагоги, которые любят свой предмет и умеют зажечь интерес у детей."
+
+#: templates/school/home.html:120
+msgid "School life"
+msgstr "Жизнь школы"
+
+#: templates/school/home.html:122
+msgid "More photos on Instagram"
+msgstr "Больше фото в Instagram"
+
+#: templates/school/home.html:128
+msgid "Science lesson"
+msgstr "Урок естествознания"
+
+#: templates/school/home.html:129
+msgid "Chess club"
+msgstr "Шахматный клуб"
+
+#: templates/school/home.html:130
+msgid "School campus"
+msgstr "Территория школы"
+
+#: templates/school/home.html:142
+msgid "What’s new at school"
+msgstr "Что нового в школе"
+
+#: templates/school/home.html:144 templates/school/news_detail.html:17
+#: templates/school/news_list.html:11
+msgid "All news"
+msgstr "Все новости"
+
+#: templates/school/home.html:158
+msgid "Questions"
+msgstr "Вопросы"
+
+#: templates/school/home.html:159
+msgid "Parents’ frequent questions"
+msgstr "Частые вопросы родителей"
+
+#: templates/school/home.html:160
+msgid "Didn’t find an answer? Write to us and we will reply within a day."
+msgstr "Не нашли ответ? Напишите нам — ответим в течение дня."
+
+#: templates/school/home.html:162
+msgid "Ask on Telegram"
+msgstr "Спросить в Telegram"
+
+#: templates/school/home.html:182
+msgid ""
+"Leave a request: we will call you back within a working day, answer your "
+"questions and invite you to the school."
+msgstr ""
+"Оставьте заявку — мы перезвоним в течение рабочего дня, ответим на вопросы и"
+" пригласим в школу."
+
+#: templates/school/home.html:185
+msgid "Request on the website"
+msgstr "Заявка на сайте"
+
+#: templates/school/home.html:185
+msgid "Fill in the form: it takes a minute."
+msgstr "Заполните форму — это займёт минуту."
+
+#: templates/school/home.html:186
+msgid "Call from the office"
+msgstr "Звонок администратора"
+
+#: templates/school/home.html:186
+msgid "We answer your questions and find a convenient time."
+msgstr "Ответим на вопросы и подберём удобное время."
+
+#: templates/school/home.html:187
+msgid "Tour and meeting"
+msgstr "Экскурсия и знакомство"
+
+#: templates/school/home.html:187
+msgid "We show you the school and get to know your child."
+msgstr "Покажем школу и познакомимся с ребёнком."
+
+#: templates/school/home.html:192
+msgid "Admission request"
+msgstr "Заявка на поступление"
+
+#: templates/school/home.html:206
+msgid "I agree to the processing of my personal data"
+msgstr "Согласен(на) на обработку персональных данных"
+
+#: templates/school/home.html:210
+msgid "Send request"
+msgstr "Отправить заявку"
+
+#: templates/school/home.html:220
+msgid "We look forward to your visit"
+msgstr "Ждём вас в гости"
+
+#: templates/school/home.html:222
+msgid "Address"
+msgstr "Адрес"
+
+#: templates/school/home.html:229
+msgid "How to find us"
+msgstr "Как нас найти"
+
+#: templates/school/home.html:230
+msgid "Open in maps"
+msgstr "Открыть на карте"
+
+#: templates/school/news_detail.html:23
+msgid "More news"
+msgstr "Ещё новости"
 
 #: templates/school/news_list.html:3 templates/school/news_list.html:5
-msgid ""
-"Discover the learning, ideas and everyday moments that make our community."
-msgstr ""
-"Учёба, идеи и повседневные моменты, из которых состоит наше сообщество."
+msgid "Learning, ideas and everyday moments from Wisdom School."
+msgstr "Учёба, идеи и повседневные моменты из жизни Wisdom School."
 
 #: templates/school/news_list.html:5
-msgid "A school full"
-msgstr "Школа, полная"
+msgid "School news"
+msgstr "Новости школы"
 
-#: templates/school/news_list.html:5
-msgid "of stories."
-msgstr "историй."
-
-#: templates/school/news_list.html:15
-msgid "Featured"
-msgstr "Главное"
-
-#: templates/school/news_list.html:18
-#: templates/school/partials/story_card.html:8
-msgid "Read the story"
-msgstr "Читать историю"
-
-#: templates/school/news_list.html:26
-msgid "From around our school"
-msgstr "Из жизни школы"
-
-#: templates/school/news_list.html:28
+#: templates/school/news_list.html:10
 msgid "Categories"
 msgstr "Категории"
 
-#: templates/school/news_list.html:29
-msgid "All stories"
-msgstr "Все истории"
-
-#: templates/school/news_list.html:38
+#: templates/school/news_list.html:21
 msgid "Pages"
 msgstr "Страницы"
 
-#: templates/school/news_list.html:39
+#: templates/school/news_list.html:22
 msgid "Newer"
 msgstr "Новее"
 
-#: templates/school/news_list.html:41
+#: templates/school/news_list.html:24
 msgid "Older"
 msgstr "Старее"
 
-#: templates/school/news_list.html:44
-msgid "No stories yet. Please check back soon."
-msgstr "Пока нет историй. Загляните позже."
+#: templates/school/news_list.html:27
+msgid "No news yet. Please check back soon."
+msgstr "Новостей пока нет. Загляните позже."
 
-#: templates/school/news_list.html:50
-msgid "See the stories"
-msgstr "Увидьте эти истории"
-
-#: templates/school/news_list.html:50
-msgid "for yourself."
-msgstr "своими глазами."
-
-#: templates/school/news_list.html:52
-msgid "Experience a day in our school community."
-msgstr "Проведите день в нашем школьном сообществе."
-
-#: templates/school/partials/cta_band.html:3
-msgid "Your child’s next chapter"
-msgstr "Новая глава вашего ребёнка"
-
-#: templates/school/partials/cta_band.html:3
-msgid "starts with a conversation."
-msgstr "начинается с разговора."
-
-#: templates/school/partials/story_card.html:8
-msgid "Read story"
+#: templates/school/partials/news_card.html:7
+msgid "Read"
 msgstr "Читать"
 
-#: templates/school/privacy.html:4
-msgid "Your privacy"
-msgstr "Ваша конфиденциальность"
-
-#: templates/school/privacy.html:4
-msgid "matters to us."
-msgstr "важна для нас."
+#: templates/school/partials/page_head.html:3
+msgid "Breadcrumbs"
+msgstr "Навигационная цепочка"
 
 #: templates/school/privacy.html:4
 msgid "How we handle the information you share with Wisdom School."
@@ -1575,6 +972,10 @@ msgid ""
 msgstr ""
 "Вы можете в любой момент попросить исправить или удалить ваши данные, "
 "связавшись со школой."
+
+#: templates/school/privacy.html:14
+msgid "Accessibility"
+msgstr "Доступность"
 
 #: templates/school/privacy.html:15
 msgid ""
