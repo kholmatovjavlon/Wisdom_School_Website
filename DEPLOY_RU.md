@@ -62,7 +62,11 @@ cPanel → **Setup Python App** → **Create Application**:
 | Application startup file | `passenger_wsgi.py` |
 | Application Entry point | `application` |
 
-Нажмите **Create**. Вверху страницы появится команда для входа в виртуальное окружение, вида:
+Нажмите **Create**.
+
+> **Важно.** При создании приложения cPanel заменяет наш `passenger_wsgi.py` своей заготовкой, и сайт отвечает ошибкой 500 («Web application could not be started»). Верните файл из репозитория командой `git checkout -- passenger_wsgi.py` в папке сайта (скрипт `deploy/setup.sh` делает это сам) и нажмите **Restart**.
+
+Вверху страницы появится команда для входа в виртуальное окружение, вида:
 
 ```bash
 source /home/wisdoms1/virtualenv/wisdom_site/3.11/bin/activate && cd /home/wisdoms1/wisdom_site

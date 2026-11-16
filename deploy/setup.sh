@@ -23,6 +23,9 @@ else
   echo ".env already exists, leaving it as is"
 fi
 
+# "Setup Python App" overwrites passenger_wsgi.py with its own stub; restore ours.
+if [ -d .git ]; then git checkout -- passenger_wsgi.py; fi
+
 pip install -r requirements.txt
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
