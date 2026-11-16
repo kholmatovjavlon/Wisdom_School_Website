@@ -1,0 +1,145 @@
+{% load static i18n %}<!doctype html>
+{% get_current_language as LANG %}
+<html lang="{{ LANG }}" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <title>{% block title %}{% translate "Wisdom School — private school in Tashkent" %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% translate "Wisdom School is a private school in Tashkent: strong teaching in three languages, small classes and care for every child, from grade 1 to 11." %}{% endblock %}">
+  <link rel="canonical" href="{{ site_url }}{{ request.path }}">
+  {% for lang in language_links %}<link rel="alternate" hreflang="{{ lang.code }}" href="{{ site_url }}{{ lang.url }}">
+  {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ site_url }}{% for lang in language_links %}{% if lang.code == 'uz' %}{{ lang.url }}{% endif %}{% endfor %}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:site_name" content="Wisdom School">
+  <meta property="og:title" content="{% block og_title %}{% translate "Wisdom School — private school in Tashkent" %}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{% translate "Knowledge, character and self-confidence." %}{% endblock %}">
+  <meta property="og:image" content="{% block og_image %}{{ site_url }}{% static 'img/students.jpg' %}{% endblock %}">
+  <meta property="og:url" content="{{ site_url }}{{ request.path }}">
+  <meta property="og:locale" content="{% if LANG == 'ru' %}ru_RU{% elif LANG == 'en' %}en_US{% else %}uz_UZ{% endif %}">
+  <meta name="theme-color" content="#5e1a1d">
+  <link rel="icon" type="image/png" sizes="64x64" href="{% static 'img/favicon.png' %}">
+  <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap&subset=cyrillic,latin-ext">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "School",
+    "name": "Wisdom School",
+    "url": "{{ site_url }}/",
+    "logo": "{{ site_url }}{% static 'img/crest.png' %}",
+    "image": "{{ site_url }}{% static 'img/campus.jpg' %}",
+    "sameAs": [{% for link in site_settings.social_links %}"{{ link.url|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}]{% if site_settings.phone %},
+    "telephone": "{{ site_settings.phone|escapejs }}"{% endif %}{% if site_settings.email %},
+    "email": "{{ site_settings.email|escapejs }}"{% endif %},
+    "address": {"@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ"{% if site_settings.address %}, "streetAddress": "{{ site_settings.address|escapejs }}"{% endif %}}
+  }
+  </script>
+  {% block head %}{% endblock %}
+</head>
+<body>
+{% include "school/partials/icons.html" %}
+<a class="skip-link" href="#main">{% translate "Skip to content" %}</a>
+{% url 'home' as home_url %}{% if nav != 'home' %}{% firstof home_url as base %}{% endif %}
+
+<div class="utility">
+  <div class="container">
+    <ul class="utility__list">
+      {% if site_settings.phone %}<li><a href="tel:{{ site_settings.phone|cut:' ' }}">{% include "school/partials/icon.html" with name="phone" %}{{ site_settings.phone }}</a></li>{% endif %}
+      {% if site_settings.email %}<li><a href="mailto:{{ site_settings.email }}">{% include "school/partials/icon.html" with name="mail" %}{{ site_settings.email }}</a></li>{% endif %}
+      {% if site_settings.address %}<li><span>{% include "school/partials/icon.html" with name="pin" %}{{ site_settings.address|truncatechars:60 }}</span></li>{% endif %}
+    </ul>
+    <div class="utility__right">
+      {% for link in site_settings.social_links %}<a href="{{ link.url }}" target="_blank" rel="noopener" aria-label="{{ link.name }}">{% include "school/partials/icon.html" with name=link.icon %}</a>{% endfor %}
+      {% if site_settings.social_links %}<span class="utility__sep" aria-hidden="true"></span>{% endif %}
+      <nav class="lang-switch" aria-label="{% translate 'Language' %}">
+        {% for lang in language_links %}<a href="{{ lang.url }}" hreflang="{{ lang.code }}" lang="{{ lang.code }}" title="{{ lang.name }}"{% if lang.code == LANG %} aria-current="true"{% endif %}>{{ lang.code|upper }}</a>{% endfor %}
+      </nav>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="{{ home_url }}" aria-label="Wisdom School — {% translate 'Home' %}">
+      <img src="{% static 'img/crest.png' %}" alt="" width="44" height="52">
+      <span><span class="brand__name">Wisdom School</span><span class="brand__sub">{% translate "Private school · Tashkent" %}</span></span>
+    </a>
+    <nav class="nav__menu" aria-label="{% translate 'Main menu' %}">
+      {% include "school/partials/menu.html" %}
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="{% translate 'Switch light / dark theme' %}">
+        {% include "school/partials/icon.html" with name="moon" cls="icon-moon" %}{% include "school/partials/icon.html" with name="sun" cls="icon-sun" %}
+      </button>
+      <a class="btn btn--primary nav__cta" href="{{ base }}#enquiry">{% translate "Enrol" %}</a>
+      <button class="icon-btn nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="{% translate 'Menu' %}">
+        {% include "school/partials/icon.html" with name="menu" %}
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="container">
+      <ul>{% include "school/partials/menu.html" with as_list=True %}</ul>
+      <div class="mobile-menu__foot">
+        <nav class="lang-switch" aria-label="{% translate 'Language' %}">
+          {% for lang in language_links %}<a href="{{ lang.url }}" hreflang="{{ lang.code }}" lang="{{ lang.code }}"{% if lang.code == LANG %} aria-current="true"{% endif %}>{{ lang.code|upper }}</a>{% endfor %}
+        </nav>
+        <a class="btn btn--gold" href="{{ base }}#enquiry">{% translate "Enrol" %}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+{% for message in messages %}<div class="container" style="padding-top:16px"><p class="notice" role="status">{{ message }}</p></div>{% endfor %}
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand"><img src="{% static 'img/crest.png' %}" alt="" width="48" height="56">Wisdom School</p>
+        <p>{% translate "A private general education school in Tashkent. Knowledge, character and self-confidence." %}</p>
+      </div>
+      <div>
+        <h2>{% translate "Sections" %}</h2>
+        <ul>
+          <li><a href="{{ base }}#about">{% translate "About" %}</a></li>
+          <li><a href="{{ base }}#learning">{% translate "Learning" %}</a></li>
+          <li><a href="{{ base }}#teachers">{% translate "Teachers" %}</a></li>
+          <li><a href="{% url 'news_list' %}">{% translate "News" %}</a></li>
+          <li><a href="{{ base }}#faq">{% translate "FAQ" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{% translate "Get in touch" %}</h2>
+        <ul>
+          {% if site_settings.phone %}<li><a href="tel:{{ site_settings.phone|cut:' ' }}">{{ site_settings.phone }}</a></li>{% endif %}
+          {% if site_settings.email %}<li><a href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a></li>{% endif %}
+          {% for link in site_settings.social_links %}<li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a></li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© {% now "Y" %} Wisdom School. {% translate "All rights reserved." %}</p>
+      <a href="{% url 'privacy' %}">{% translate "Privacy policy" %}</a>
+    </div>
+  </div>
+</footer>
+<script src="{% static 'js/site.js' %}" defer></script>
+</body>
+</html>

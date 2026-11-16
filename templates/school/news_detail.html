@@ -1,0 +1,28 @@
+{% extends "base.html" %}{% load static i18n %}
+{% block title %}{{ post.title }} — Wisdom School{% endblock %}
+{% block description %}{{ post.excerpt|default:post.title|truncatechars:160 }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.excerpt|default:post.title|truncatechars:160 }}{% endblock %}
+{% block og_image %}{% if post.image %}{{ site_url }}{{ post.image.url }}{% else %}{{ site_url }}{% static 'img/campus.jpg' %}{% endif %}{% endblock %}
+{% block content %}
+{% url 'news_list' as news_url %}{% translate "News" as crumb %}
+{% include "school/partials/page_head.html" with title=post.title crumb=crumb crumb_url=news_url %}
+<section class="section">
+  <article class="container article">
+    <p class="meta" style="margin-bottom:16px">{% if post.category %}<span class="cat">{{ post.category.name }}</span><span aria-hidden="true">•</span>{% endif %}<time datetime="{{ post.published_at|date:'c' }}">{{ post.published_at|date:"j E Y" }}</time></p>
+    {% if post.excerpt %}<p class="article__lead">{{ post.excerpt }}</p>{% endif %}
+    {% if post.image %}<img class="article__image" src="{{ post.image.url }}" alt="">{% endif %}
+    <div class="article__body">{% for p in post.paragraphs %}<p>{{ p|linebreaksbr }}</p>{% endfor %}</div>
+    <p><a class="link" href="{{ news_url }}">← {% translate "All news" %}</a></p>
+  </article>
+</section>
+{% if more %}
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__head"><h2 class="h2">{% translate "More news" %}</h2></div>
+    <div class="grid-3">{% for post in more %}{% include "school/partials/news_card.html" %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

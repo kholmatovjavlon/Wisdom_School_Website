@@ -1,0 +1,991 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 15:21+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config/settings.py:118
+msgid "O‘zbekcha"
+msgstr ""
+
+#: config/settings.py:119
+msgid "Русский"
+msgstr ""
+
+#: config/settings.py:120
+msgid "English"
+msgstr ""
+
+#: school/admin.py:21
+msgid "Wisdom School — site management"
+msgstr "Wisdom School — saytni boshqarish"
+
+#: school/admin.py:22
+msgid "Wisdom School"
+msgstr "Wisdom School"
+
+#: school/admin.py:23
+msgid "Site content and enquiries"
+msgstr "Sayt kontenti va arizalar"
+
+#: school/admin.py:35 school/context_processors.py:15
+#: templates/school/home.html:219
+msgid "Contacts"
+msgstr "Kontaktlar"
+
+#: school/admin.py:36
+msgid "Social networks"
+msgstr "Ijtimoiy tarmoqlar"
+
+#: school/admin.py:37
+msgid "Header"
+msgstr "Sayt sarlavhasi"
+
+#: school/admin.py:60 school/models.py:84
+msgid "photo"
+msgstr "rasm"
+
+#: school/admin.py:82 school/admin.py:93 school/models.py:127
+#: school/models.py:162
+msgid "image"
+msgstr "rasm"
+
+#: school/admin.py:105
+msgid "Export selected to CSV (Excel)"
+msgstr "Tanlanganlarni CSV (Excel) ga yuklash"
+
+#: school/admin.py:127
+msgid "Mark as done"
+msgstr "Bajarildi deb belgilash"
+
+#: school/admin.py:132
+msgid "Mark as in progress"
+msgstr "«Jarayonda» deb belgilash"
+
+#: school/apps.py:8
+msgid "School website"
+msgstr "Maktab sayti"
+
+#: school/context_processors.py:9 templates/base.html:121
+#: templates/school/home.html:36
+msgid "About"
+msgstr "Maktab haqida"
+
+#: school/context_processors.py:10 templates/base.html:122
+#: templates/school/home.html:59
+msgid "Learning"
+msgstr "Ta’lim"
+
+#: school/context_processors.py:11 templates/school/home.html:80
+msgid "Directions"
+msgstr "Yo‘nalishlar"
+
+#: school/context_processors.py:12 templates/base.html:123
+#: templates/school/home.html:98
+msgid "Teachers"
+msgstr "O‘qituvchilar"
+
+#: school/context_processors.py:13 templates/school/home.html:119
+msgid "Gallery"
+msgstr "Galereya"
+
+#: school/context_processors.py:14 templates/base.html:125
+msgid "FAQ"
+msgstr "Savollar"
+
+#: school/forms.py:21
+msgid "I agree to the processing of my personal data."
+msgstr "Shaxsiy ma’lumotlarimni qayta ishlashga roziman."
+
+#: school/forms.py:27
+msgid "Parent's name"
+msgstr "Ota-onaning ismi"
+
+#: school/forms.py:28 templates/school/home.html:223
+msgid "Phone"
+msgstr "Telefon"
+
+#: school/forms.py:29
+msgid "Child's stage"
+msgstr "Farzandning ta’lim bosqichi"
+
+#: school/forms.py:30
+msgid "How should we contact you?"
+msgstr "Siz bilan qanday bog‘lanaylik?"
+
+#: school/forms.py:33
+msgid "For example, Dilnoza"
+msgstr "Masalan, Dilnoza"
+
+#: school/forms.py:44
+msgid "Select a stage"
+msgstr "Bosqichni tanlang"
+
+#: school/forms.py:52
+msgid ""
+"I have read the privacy policy and agree to be contacted about my message."
+msgstr ""
+"Maxfiylik siyosati bilan tanishdim va xabarim bo‘yicha men bilan "
+"bog‘lanishlariga roziman."
+
+#: school/forms.py:58
+msgid "Full name"
+msgstr "To‘liq ism"
+
+#: school/forms.py:59
+msgid "Email address"
+msgstr "Elektron pochta"
+
+#: school/forms.py:60
+msgid "Subject"
+msgstr "Mavzu"
+
+#: school/forms.py:61
+msgid "Message"
+msgstr "Xabar"
+
+#: school/forms.py:64
+msgid "Your full name"
+msgstr "To‘liq ismingiz"
+
+#: school/forms.py:66
+msgid "How can we help?"
+msgstr "Qanday yordam bera olamiz?"
+
+#: school/forms.py:71
+msgid "Select a subject"
+msgstr "Mavzuni tanlang"
+
+#: school/models.py:11
+msgid "tagline"
+msgstr "shior"
+
+#: school/models.py:12
+msgid "Leave empty to use the standard text."
+msgstr "Standart matn uchun bo‘sh qoldiring."
+
+#: school/models.py:13 school/models.py:206
+msgid "phone"
+msgstr "telefon"
+
+#: school/models.py:14
+msgid "second phone"
+msgstr "qo‘shimcha telefon"
+
+#: school/models.py:15 school/models.py:205 school/models.py:236
+msgid "e-mail"
+msgstr "e-mail"
+
+#: school/models.py:16
+msgid "address"
+msgstr "manzil"
+
+#: school/models.py:17
+msgid "working hours"
+msgstr "ish vaqti"
+
+#: school/models.py:18
+msgid "map link"
+msgstr "xarita havolasi"
+
+#: school/models.py:19
+msgid "Link to the school on Google Maps or Yandex Maps."
+msgstr "Maktabning Google Maps yoki Yandex Xaritalardagi havolasi."
+
+#: school/models.py:26 school/models.py:27
+msgid "site settings"
+msgstr "sayt sozlamalari"
+
+#: school/models.py:30
+msgid "Site settings"
+msgstr "Sayt sozlamalari"
+
+#: school/models.py:49
+msgid "Light"
+msgstr "Och"
+
+#: school/models.py:50
+msgid "Lavender"
+msgstr "Lavanda"
+
+#: school/models.py:54 school/models.py:119
+msgid "title"
+msgstr "nomi"
+
+#: school/models.py:55
+msgid "short tagline"
+msgstr "qisqa izoh"
+
+#: school/models.py:56
+msgid "Shown in small capitals, e.g. “A joyful beginning”."
+msgstr "Kichik bosh harflarda ko‘rsatiladi, masalan «Quvonchli boshlanish»."
+
+#: school/models.py:57
+msgid "summary for the home page"
+msgstr "bosh sahifa uchun qisqa matn"
+
+#: school/models.py:58
+msgid "headline"
+msgstr "sarlavha"
+
+#: school/models.py:59
+msgid "description"
+msgstr "tavsif"
+
+#: school/models.py:60
+msgid "highlights"
+msgstr "asosiy bandlar"
+
+#: school/models.py:61
+msgid "One item per line."
+msgstr "Har bir band alohida qatorda."
+
+#: school/models.py:62 school/models.py:85
+msgid "card colour"
+msgstr "karta rangi"
+
+#: school/models.py:64 school/models.py:87 school/models.py:102
+#: school/models.py:164 school/models.py:180
+msgid "order"
+msgstr "tartib"
+
+#: school/models.py:65 school/models.py:88 school/models.py:165
+#: school/models.py:181
+msgid "show on site"
+msgstr "saytda ko‘rsatish"
+
+#: school/models.py:69 school/models.py:207
+msgid "learning stage"
+msgstr "ta’lim bosqichi"
+
+#: school/models.py:70
+msgid "learning stages"
+msgstr "ta’lim bosqichlari"
+
+#: school/models.py:81 school/models.py:235
+msgid "full name"
+msgstr "F.I.Sh."
+
+#: school/models.py:82
+msgid "subject / role"
+msgstr "fan / lavozim"
+
+#: school/models.py:83
+msgid "short description"
+msgstr "qisqa tavsif"
+
+#: school/models.py:92
+msgid "teacher"
+msgstr "o‘qituvchi"
+
+#: school/models.py:93
+msgid "teachers"
+msgstr "o‘qituvchilar"
+
+#: school/models.py:100
+msgid "name"
+msgstr "nomi"
+
+#: school/models.py:101 school/models.py:120
+msgid "slug"
+msgstr "manzil (slug)"
+
+#: school/models.py:106
+msgid "news category"
+msgstr "yangiliklar toifasi"
+
+#: school/models.py:107
+msgid "news categories"
+msgstr "yangiliklar toifalari"
+
+#: school/models.py:121
+msgid "Part of the page address. Filled in automatically if left empty."
+msgstr ""
+"Sahifa manzilining bir qismi. Bo‘sh qoldirilsa, avtomatik to‘ldiriladi."
+
+#: school/models.py:122
+msgid "category"
+msgstr "toifa"
+
+#: school/models.py:124
+msgid "short summary"
+msgstr "qisqa mazmun"
+
+#: school/models.py:125
+msgid "text"
+msgstr "matn"
+
+#: school/models.py:126
+msgid "Separate paragraphs with an empty line."
+msgstr "Xatboshilarni bo‘sh qator bilan ajrating."
+
+#: school/models.py:128
+msgid "publication date"
+msgstr "e’lon qilingan sana"
+
+#: school/models.py:129
+msgid "published"
+msgstr "e’lon qilingan"
+
+#: school/models.py:130
+msgid "featured story"
+msgstr "asosiy yangilik"
+
+#: school/models.py:131
+msgid "Shown large at the top of the news page."
+msgstr "Yangiliklar sahifasining yuqorisida katta ko‘rsatiladi."
+
+#: school/models.py:138
+msgid "news post"
+msgstr "yangilik"
+
+#: school/models.py:139
+msgid "news"
+msgstr "yangiliklar"
+
+#: school/models.py:163
+msgid "caption"
+msgstr "izoh"
+
+#: school/models.py:166
+msgid "added"
+msgstr "qo‘shilgan"
+
+#: school/models.py:170
+msgid "gallery photo"
+msgstr "galereya rasmi"
+
+#: school/models.py:171
+msgid "gallery"
+msgstr "galereya"
+
+#: school/models.py:178
+msgid "question"
+msgstr "savol"
+
+#: school/models.py:179
+msgid "answer"
+msgstr "javob"
+
+#: school/models.py:185
+msgid "admissions question"
+msgstr "qabul bo‘yicha savol"
+
+#: school/models.py:186
+msgid "admissions questions (FAQ)"
+msgstr "qabul bo‘yicha savollar (FAQ)"
+
+#: school/models.py:193
+msgid "New"
+msgstr "Yangi"
+
+#: school/models.py:194
+msgid "In progress"
+msgstr "Jarayonda"
+
+#: school/models.py:195
+msgid "Done"
+msgstr "Bajarildi"
+
+#: school/models.py:200
+msgid "Phone call"
+msgstr "Qo‘ng‘iroq"
+
+#: school/models.py:201
+msgid "School tour"
+msgstr "Maktabga ekskursiya"
+
+#: school/models.py:202
+msgid "Information by message"
+msgstr "Xabar orqali ma’lumot"
+
+#: school/models.py:204
+msgid "parent / guardian name"
+msgstr "ota-ona / vasiy ismi"
+
+#: school/models.py:209
+msgid "preferred next step"
+msgstr "keyingi qadam"
+
+#: school/models.py:211 school/models.py:238
+msgid "message"
+msgstr "xabar"
+
+#: school/models.py:212 school/models.py:239
+msgid "consent to be contacted"
+msgstr "bog‘lanishga rozilik"
+
+#: school/models.py:213 school/models.py:240
+msgid "site language"
+msgstr "sayt tili"
+
+#: school/models.py:214 school/models.py:241
+msgid "status"
+msgstr "holat"
+
+#: school/models.py:216
+msgid "staff notes"
+msgstr "xodimlar izohi"
+
+#: school/models.py:217 school/models.py:243
+msgid "received"
+msgstr "qabul qilingan"
+
+#: school/models.py:221
+msgid "admissions enquiry"
+msgstr "qabul uchun ariza"
+
+#: school/models.py:222
+msgid "admissions enquiries"
+msgstr "qabul uchun arizalar"
+
+#: school/models.py:230
+msgid "General question"
+msgstr "Umumiy savol"
+
+#: school/models.py:231 templates/school/home.html:180
+msgid "Admissions"
+msgstr "Qabul"
+
+#: school/models.py:232
+msgid "School visit"
+msgstr "Maktabga tashrif"
+
+#: school/models.py:233
+msgid "Other"
+msgstr "Boshqa"
+
+#: school/models.py:237
+msgid "subject"
+msgstr "mavzu"
+
+#: school/models.py:247
+msgid "contact message"
+msgstr "saytdan xabar"
+
+#: school/models.py:248
+msgid "contact messages"
+msgstr "saytdan xabarlar"
+
+#: school/urls.py:8
+msgid "about/"
+msgstr "maktab-haqida/"
+
+#: school/urls.py:9
+msgid "academics/"
+msgstr "talim/"
+
+#: school/urls.py:10
+msgid "admissions/"
+msgstr "qabul/"
+
+#: school/urls.py:11
+msgid "faculty/"
+msgstr "oqituvchilar/"
+
+#: school/urls.py:12
+msgid "news/"
+msgstr "yangiliklar/"
+
+#: school/urls.py:13
+msgid "news/<slug:slug>/"
+msgstr "yangiliklar/<slug:slug>/"
+
+#: school/urls.py:14
+msgid "gallery/"
+msgstr "galereya/"
+
+#: school/urls.py:15
+msgid "contact/"
+msgstr "aloqa/"
+
+#: school/urls.py:16
+msgid "privacy/"
+msgstr "maxfiylik/"
+
+#: school/views.py:69
+msgid "Thank you! Your enquiry has been received. We will call you back soon."
+msgstr "Rahmat! Arizangiz qabul qilindi. Tez orada sizga qo‘ng‘iroq qilamiz."
+
+#: templates/base.html:17 templates/base.html:24
+msgid "Wisdom School — private school in Tashkent"
+msgstr "Wisdom School — Toshkentdagi xususiy maktab"
+
+#: templates/base.html:18
+msgid ""
+"Wisdom School is a private school in Tashkent: strong teaching in three "
+"languages, small classes and care for every child, from grade 1 to 11."
+msgstr ""
+"Wisdom School — Toshkentdagi xususiy maktab: uch tilda kuchli ta’lim, kichik"
+" sinflar va 1-sinfdan 11-sinfgacha har bir bolaga e’tibor."
+
+#: templates/base.html:25
+msgid "Knowledge, character and self-confidence."
+msgstr "Bilim, xarakter va o‘ziga ishonch."
+
+#: templates/base.html:54
+msgid "Skip to content"
+msgstr "Asosiy qismga o‘tish"
+
+#: templates/base.html:67 templates/base.html:97
+msgid "Language"
+msgstr "Til"
+
+#: templates/base.html:76 templates/school/partials/page_head.html:3
+msgid "Home"
+msgstr "Bosh sahifa"
+
+#: templates/base.html:78
+msgid "Private school · Tashkent"
+msgstr "Xususiy maktab · Toshkent"
+
+#: templates/base.html:80
+msgid "Main menu"
+msgstr "Asosiy menyu"
+
+#: templates/base.html:84
+msgid "Switch light / dark theme"
+msgstr "Yorug‘ / qorong‘i mavzuni almashtirish"
+
+#: templates/base.html:87 templates/base.html:100
+msgid "Enrol"
+msgstr "Yozilish"
+
+#: templates/base.html:88
+msgid "Menu"
+msgstr "Menyu"
+
+#: templates/base.html:116
+msgid ""
+"A private general education school in Tashkent. Knowledge, character and "
+"self-confidence."
+msgstr ""
+"Toshkentdagi xususiy umumta’lim maktabi. Bilim, xarakter va o‘ziga ishonch."
+
+#: templates/base.html:119
+msgid "Sections"
+msgstr "Bo‘limlar"
+
+#: templates/base.html:124 templates/school/home.html:141
+#: templates/school/news_detail.html:9 templates/school/news_list.html:2
+msgid "News"
+msgstr "Yangiliklar"
+
+#: templates/base.html:129
+msgid "Get in touch"
+msgstr "Biz bilan bog‘laning"
+
+#: templates/base.html:138
+msgid "All rights reserved."
+msgstr "Barcha huquqlar himoyalangan."
+
+#: templates/base.html:139 templates/school/home.html:206
+#: templates/school/privacy.html:2 templates/school/privacy.html:4
+msgid "Privacy policy"
+msgstr "Maxfiylik siyosati"
+
+#: templates/school/home.html:6
+msgid "Admissions open for the 2026/27 school year"
+msgstr "2026/27 o‘quv yiliga qabul ochiq"
+
+#: templates/school/home.html:7
+msgid "Knowledge, character"
+msgstr "Bilim, xarakter"
+
+#: templates/school/home.html:7
+msgid "and"
+msgstr "va"
+
+#: templates/school/home.html:7
+msgid "self-confidence"
+msgstr "o‘ziga ishonch"
+
+#: templates/school/home.html:8
+msgid ""
+"A private school in Tashkent’s Shaykhontohur district. A strong programme in"
+" three languages, small classes and attention to every child, from grade 1 "
+"to 11."
+msgstr ""
+"Toshkentning Shayxontohur tumanidagi xususiy maktab. Uch tilda kuchli "
+"dastur, kichik sinflar va har bir bolaga e’tibor — 1-sinfdan 11-sinfgacha."
+
+#: templates/school/home.html:10 templates/school/home.html:181
+msgid "Book a school tour"
+msgstr "Ekskursiyaga yozilish"
+
+#: templates/school/home.html:11
+msgid "About the school"
+msgstr "Maktab haqida"
+
+#: templates/school/home.html:14
+msgid "grades"
+msgstr "sinflar"
+
+#: templates/school/home.html:15
+msgid "languages of study"
+msgstr "ta’lim tili"
+
+#: templates/school/home.html:16
+msgid "up to 16"
+msgstr "16 tagacha"
+
+#: templates/school/home.html:16
+msgid "pupils per class"
+msgstr "sinfda o‘quvchi"
+
+#: templates/school/home.html:17
+msgid "directions"
+msgstr "yo‘nalish"
+
+#: templates/school/home.html:21
+msgid "Students learning together"
+msgstr "O‘quvchilar birga o‘qimoqda"
+
+#: templates/school/home.html:24
+msgid "Free school tour"
+msgstr "Bepul ekskursiya"
+
+#: templates/school/home.html:24
+msgid "Get to know the school in person"
+msgstr "Maktab bilan shaxsan tanishing"
+
+#: templates/school/home.html:33
+msgid "Our school campus"
+msgstr "Maktabimiz hududi"
+
+#: templates/school/home.html:37
+msgid "A school where every child is known by name"
+msgstr "Har bir bolani ismi bilan biladigan maktab"
+
+#: templates/school/home.html:38
+msgid ""
+"Wisdom School is a private general education school in Tashkent. We combine "
+"solid knowledge, character education and modern skills so children move "
+"confidently to university and adult life."
+msgstr ""
+"Wisdom School — Toshkentdagi xususiy umumta’lim maktabi. Bolalar "
+"universitetga va kattalar hayotiga ishonch bilan qadam qo‘yishlari uchun "
+"mustahkam bilim, xarakter tarbiyasi va zamonaviy ko‘nikmalarni "
+"uyg‘unlashtiramiz."
+
+#: templates/school/home.html:41
+msgid "State curriculum plus in-depth English"
+msgstr "Davlat dasturi va chuqurlashtirilgan ingliz tili"
+
+#: templates/school/home.html:42
+msgid "Classes of up to 16 pupils: the teacher sees everyone"
+msgstr "16 nafargacha o‘quvchili sinflar — o‘qituvchi har birini ko‘radi"
+
+#: templates/school/home.html:43
+msgid "Safe campus, meals and after-school care"
+msgstr "Xavfsiz hudud, ovqatlanish va kunlik guruh"
+
+#: templates/school/home.html:48
+msgid "Care and safety"
+msgstr "G‘amxo‘rlik va xavfsizlik"
+
+#: templates/school/home.html:48
+msgid "A friendly atmosphere where children feel calm and curious."
+msgstr "Bolaga xotirjam va qiziqarli o‘qish imkonini beradigan samimiy muhit."
+
+#: templates/school/home.html:49
+msgid "Strong academic base"
+msgstr "Kuchli akademik poydevor"
+
+#: templates/school/home.html:49
+msgid "Deep knowledge in core subjects and olympiad preparation."
+msgstr "Asosiy fanlar bo‘yicha chuqur bilim va olimpiadalarga tayyorgarlik."
+
+#: templates/school/home.html:50
+msgid "Leadership and character"
+msgstr "Yetakchilik va xarakter"
+
+#: templates/school/home.html:50
+msgid "We teach responsibility, respect and the ability to lead."
+msgstr "Mas’uliyat, hurmat va boshqalarni ergashtira olishni o‘rgatamiz."
+
+#: templates/school/home.html:60
+msgid "Three stages, one path"
+msgstr "Uch bosqich — bitta yo‘l"
+
+#: templates/school/home.html:61
+msgid ""
+"From first letters to university entrance: each stage prepares for the next."
+msgstr ""
+"Ilk harflardan universitetga kirishgacha: har bir bosqich keyingisiga "
+"tayyorlaydi."
+
+#: templates/school/home.html:81
+msgid "Four strengths, like on our crest"
+msgstr "To‘rt kuch — gerbimizdagidek"
+
+#: templates/school/home.html:82
+msgid ""
+"The computer, the atom, the graduation cap and the chess knight on the "
+"Wisdom School crest are what the school lives by every day."
+msgstr ""
+"Wisdom School gerbidagi kompyuter, atom, bitiruvchi qalpog‘i va shaxmat oti "
+"— maktab har kuni yashaydigan qadriyatlar."
+
+#: templates/school/home.html:85
+msgid "IT and technology"
+msgstr "IT va texnologiyalar"
+
+#: templates/school/home.html:85
+msgid "Computer literacy, algorithms and first projects."
+msgstr "Kompyuter savodxonligi, algoritmlar va ilk loyihalar."
+
+#: templates/school/home.html:86
+msgid "Natural sciences"
+msgstr "Tabiiy fanlar"
+
+#: templates/school/home.html:86
+msgid "Lab experiments in physics, chemistry and biology."
+msgstr "Laboratoriyada tajribalar: fizika, kimyo, biologiya."
+
+#: templates/school/home.html:87
+msgid "Path to university"
+msgstr "Universitetga yo‘l"
+
+#: templates/school/home.html:87
+msgid "Exam preparation, IELTS and SAT, career guidance."
+msgstr "Imtihonlarga, IELTS va SAT ga tayyorgarlik, kasb tanlash."
+
+#: templates/school/home.html:88
+msgid "Chess and logic"
+msgstr "Shaxmat va mantiq"
+
+#: templates/school/home.html:88
+msgid "Strategic thinking and planning several moves ahead."
+msgstr "Strategik fikrlash va yurishlarni oldindan hisoblash."
+
+#: templates/school/home.html:90
+msgid "Teaching in Uzbek, Russian and English"
+msgstr "O‘zbek, rus va ingliz tillarida ta’lim"
+
+#: templates/school/home.html:99
+msgid "Mentors families trust"
+msgstr "Oilalar ishonadigan ustozlar"
+
+#: templates/school/home.html:100
+msgid ""
+"Experienced teachers who love their subject and know how to spark children’s"
+" interest."
+msgstr ""
+"O‘z faniga mehr qo‘ygan va bolalarda qiziqish uyg‘ota oladigan tajribali "
+"pedagoglar."
+
+#: templates/school/home.html:120
+msgid "School life"
+msgstr "Maktab hayoti"
+
+#: templates/school/home.html:122
+msgid "More photos on Instagram"
+msgstr "Ko‘proq suratlar Instagramda"
+
+#: templates/school/home.html:128
+msgid "Science lesson"
+msgstr "Tabiiy fanlar darsi"
+
+#: templates/school/home.html:129
+msgid "Chess club"
+msgstr "Shaxmat to‘garagi"
+
+#: templates/school/home.html:130
+msgid "School campus"
+msgstr "Maktab hududi"
+
+#: templates/school/home.html:142
+msgid "What’s new at school"
+msgstr "Maktabda nima yangiliklar"
+
+#: templates/school/home.html:144 templates/school/news_detail.html:17
+#: templates/school/news_list.html:11
+msgid "All news"
+msgstr "Barcha yangiliklar"
+
+#: templates/school/home.html:158
+msgid "Questions"
+msgstr "Savollar"
+
+#: templates/school/home.html:159
+msgid "Parents’ frequent questions"
+msgstr "Ota-onalarning ko‘p beriladigan savollari"
+
+#: templates/school/home.html:160
+msgid "Didn’t find an answer? Write to us and we will reply within a day."
+msgstr "Javob topmadingizmi? Bizga yozing — bir kun ichida javob beramiz."
+
+#: templates/school/home.html:162
+msgid "Ask on Telegram"
+msgstr "Telegramda so‘rash"
+
+#: templates/school/home.html:182
+msgid ""
+"Leave a request: we will call you back within a working day, answer your "
+"questions and invite you to the school."
+msgstr ""
+"Ariza qoldiring — bir ish kuni ichida qo‘ng‘iroq qilamiz, savollaringizga "
+"javob beramiz va maktabga taklif qilamiz."
+
+#: templates/school/home.html:185
+msgid "Request on the website"
+msgstr "Saytda ariza"
+
+#: templates/school/home.html:185
+msgid "Fill in the form: it takes a minute."
+msgstr "Shaklni to‘ldiring — bu bir daqiqa oladi."
+
+#: templates/school/home.html:186
+msgid "Call from the office"
+msgstr "Administrator qo‘ng‘irog‘i"
+
+#: templates/school/home.html:186
+msgid "We answer your questions and find a convenient time."
+msgstr "Savollaringizga javob beramiz va qulay vaqtni tanlaymiz."
+
+#: templates/school/home.html:187
+msgid "Tour and meeting"
+msgstr "Ekskursiya va tanishuv"
+
+#: templates/school/home.html:187
+msgid "We show you the school and get to know your child."
+msgstr "Maktabni ko‘rsatamiz va farzandingiz bilan tanishamiz."
+
+#: templates/school/home.html:192
+msgid "Admission request"
+msgstr "Qabul uchun ariza"
+
+#: templates/school/home.html:206
+msgid "I agree to the processing of my personal data"
+msgstr "Shaxsiy ma’lumotlarimni qayta ishlashga roziman"
+
+#: templates/school/home.html:210
+msgid "Send request"
+msgstr "Arizani yuborish"
+
+#: templates/school/home.html:220
+msgid "We look forward to your visit"
+msgstr "Sizni mehmonga kutamiz"
+
+#: templates/school/home.html:222
+msgid "Address"
+msgstr "Manzil"
+
+#: templates/school/home.html:229
+msgid "How to find us"
+msgstr "Bizni qanday topish mumkin"
+
+#: templates/school/home.html:230
+msgid "Open in maps"
+msgstr "Xaritada ochish"
+
+#: templates/school/news_detail.html:23
+msgid "More news"
+msgstr "Boshqa yangiliklar"
+
+#: templates/school/news_list.html:3 templates/school/news_list.html:5
+msgid "Learning, ideas and everyday moments from Wisdom School."
+msgstr "Wisdom School hayotidan ta’lim, g‘oyalar va kundalik lahzalar."
+
+#: templates/school/news_list.html:5
+msgid "School news"
+msgstr "Maktab yangiliklari"
+
+#: templates/school/news_list.html:10
+msgid "Categories"
+msgstr "Toifalar"
+
+#: templates/school/news_list.html:21
+msgid "Pages"
+msgstr "Sahifalar"
+
+#: templates/school/news_list.html:22
+msgid "Newer"
+msgstr "Yangiroq"
+
+#: templates/school/news_list.html:24
+msgid "Older"
+msgstr "Eskiroq"
+
+#: templates/school/news_list.html:27
+msgid "No news yet. Please check back soon."
+msgstr "Hozircha yangiliklar yo‘q. Keyinroq kiring."
+
+#: templates/school/partials/news_card.html:7
+msgid "Read"
+msgstr "O‘qish"
+
+#: templates/school/partials/page_head.html:3
+msgid "Breadcrumbs"
+msgstr "Navigatsiya"
+
+#: templates/school/privacy.html:4
+msgid "How we handle the information you share with Wisdom School."
+msgstr ""
+"Wisdom School bilan ulashgan ma’lumotlaringizga qanday munosabatda bo‘lamiz."
+
+#: templates/school/privacy.html:8
+msgid "What we collect"
+msgstr "Biz nimalarni yig‘amiz"
+
+#: templates/school/privacy.html:9
+msgid ""
+"When you send an enquiry or a message, we receive the details you enter in "
+"the form: your name, contact details and your message."
+msgstr ""
+"Ariza yoki xabar yuborganingizda, shaklga kiritgan ma’lumotlaringizni "
+"olamiz: ismingiz, aloqa ma’lumotlari va xabaringiz."
+
+#: templates/school/privacy.html:10
+msgid "How we use it"
+msgstr "Ulardan qanday foydalanamiz"
+
+#: templates/school/privacy.html:11
+msgid ""
+"We use this information only to respond to your enquiry and to help your "
+"family with admissions. We do not sell or share it with third parties."
+msgstr ""
+"Bu ma’lumotlardan faqat murojaatingizga javob berish va oilangizga qabul "
+"bo‘yicha yordam berish uchun foydalanamiz. Ularni sotmaymiz va uchinchi "
+"shaxslarga bermaymiz."
+
+#: templates/school/privacy.html:12
+msgid "Your choices"
+msgstr "Sizning huquqlaringiz"
+
+#: templates/school/privacy.html:13
+msgid ""
+"You can ask us to correct or delete your information at any time by "
+"contacting the school."
+msgstr ""
+"Istalgan vaqtda maktab bilan bog‘lanib, ma’lumotlaringizni tuzatish yoki "
+"o‘chirishni so‘rashingiz mumkin."
+
+#: templates/school/privacy.html:14
+msgid "Accessibility"
+msgstr "Foydalanish qulayligi"
+
+#: templates/school/privacy.html:15
+msgid ""
+"We want everyone to be able to use this website. The site works on phones, "
+"tablets and computers, supports keyboard navigation and screen readers. If "
+"something is difficult to use, please let us know."
+msgstr ""
+"Biz saytdan hamma foydalana olishini istaymiz. Sayt telefon, planshet va "
+"kompyuterlarda ishlaydi, klaviatura va ekran o‘quvchi dasturlarni qo‘llab-"
+"quvvatlaydi. Biror narsa noqulay bo‘lsa, bizga xabar bering."
